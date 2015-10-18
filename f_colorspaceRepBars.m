@@ -1,0 +1,103 @@
+function f_colorspaceRepBars(matches, roundvec, dataname)
+
+% function colorspaceRepBars(matches, binning, dataname)
+% meant to show you the ratio of observed matches to expected matches for a
+% given bin in rgb space given the assumption of uniform random matches
+% matches are nx26x3 matrix of matches
+% roundvec bins the rgb space into managable size
+% dataname puts a name on the figure and could be used for saving
+
+
+
+% useful for plots
+letters = {'A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J' 'K' 'L' 'M' 'N' 'O' 'P' 'Q' 'R' 'S' 'T' 'U' 'V' 'W' 'X' 'Y' 'Z'};
+
+
+% counts of letters in each rounded 3d bin across all letters
+allletterhists = zeros((length(roundvec))^3,1);
+
+% rounded rgb values across all letters
+allroundedclrs = [];
+clrctr = 1;
+
+% for each letter
+for i=1:26
+    clrs = squeeze(matches(:,i,:));
+    %  all rgb values are between 0 and 1
+    % we could round to the nearest .1
+    % use downloaded function roundtowardvec
+%     roundvec = 0:.25:1; %(1331 locations)
+    roundedclrs = roundtowardvec(clrs,roundvec);
+    
+    allroundedclrs = [allroundedclrs; roundedclrs];
+    
+    % want to be able to scale our plots (either alpha or markersize) using the
+    % number of datapoints in each bin.  3d hist code in matlab looks like a
+    % pain so we could do it in a loop?
+    
+    counter=1;
+    bplotmatrix = zeros(length(roundvec)^3,4);
+    
+    for a=1:length(roundvec)
+        for b=1:length(roundvec)
+            for c=1:length(roundvec)
+                bplotmatrix(counter,:) = [roundvec(a) roundvec(b) roundvec(c) ...
+                    sum(ismember(roundedclrs, [roundvec(a) roundvec(b) roundvec(c)],...
+                    'rows'))];
+                counter=counter+1;
+            end
+        end
+    end
+    % less than a minute
+    
+%     collect matches for this letter for all letters plot
+     allletterhists = allletterhists + bplotmatrix(:,4);
+    
+    
+%     uniform matches at each point
+      expectedmatches = sum(bplotmatrix(:,4))/(length(roundvec))^3;
+    
+%     for the bar plot we need to sort the bplotmatrix
+    [sorted sortindex] = sort(bplotmatrix(:,4));
+    
+    
+%     so for each letter if we want it later
+
+% figure('name',['distribution across rgb space for ' dataname ' ' letters{i}],'Color',[1 1 1]);
+%     hBar=bar(1:(length(roundvec))^3,bplotmatrix(sortindex,4)/expectedmatches,'hist');
+%     box off
+% %     set(gca,'XTickLabel',names,'XLim',[-0.5,10.5],'YLim',[0,.5]);
+%     ylabel('% of responses');
+%     set(hBar,'FaceVertexCData',bplotmatrix(sortindex,1:3));
+%    
+%     
+  
+    
+end
+
+
+
+% across all letters
+
+   
+%     uniform matches at each point
+      expectedmatches = sum(allletterhists)/(length(roundvec))^3;
+    
+%     for the bar plot we need to sort the bplotmatrix
+    [sorted sortindex] = sort(allletterhists);
+    
+    
+%     so for each letter
+
+figure('name',['distribution across rgb space for ' dataname ' all letters'],'Color',[1 1 1]);
+    hBar=bar(1:(length(roundvec))^3,allletterhists(sortindex)/expectedmatches,'hist');
+    box off
+%     set(gca,'XTickLabel',names,'XLim',[-0.5,10.5],'YLim',[0,.5]);
+    ylabel('ratio of matches to uniform');
+    set(hBar,'FaceVertexCData',bplotmatrix(sortindex,1:3));
+   
+
+    
+    
+%     le
+
