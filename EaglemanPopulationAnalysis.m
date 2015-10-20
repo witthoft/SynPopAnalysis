@@ -826,5 +826,64 @@ colorbar;
 
 
 
+% in both the brang and watson papers they bin the letter pairs into groups
+% based on the average similarity in color distance
+% simmeasures is the average distance in RGB (in future we will match the
+% color space as well)
+
+[sortedsim, sortedindx] = sort(simmeasures(:,end));
+
+% average our responses
+% reshape for averaging
+sortedsim=reshape(sortedsim,5,325/5);
+% average
+ave_sortedsim=mean(sortedsim);
+
+% sort our letter pairs to match
+sortedletterpairs = letterpairs(sortedindx);
+
+
+
+
+% fastest way is to reshape each matrix and compute average?
+
+for i=1:size(simmeasures,2)-1
+    
+    % ave sorted predictor
+    s=simmeasures(sortedindx,i);
+    % reshape for averaging (checked this bookkeeping and it looks right)
+    s=reshape(s,5,325/5);
+    % average the columns
+    ave_s=mean(s);
+    
+    %     compute a correlation between the measures
+    %  linear regression
+    p=polyfit(ave_s,ave_sortedsim,1);       
+    %   points predicted by fit line
+    yfit=polyval(p,ave_s);
+    %   get the residuals
+    yresid=ave_sortedsim-yfit;
+    %    sumsquaredresidual
+    SSresid=sum(yresid.^2);
+    %     total sum of squares
+    SSTotal=(length(ave_sortedsim)-1)*var(ave_sortedsim);
+    %     rsquared
+    rsq = 1 - SSresid/SSTotal;
+    %
+    
+    figure('Name',columnheaders{i},'Color',[1 1 1]);
+    plot(ave_s,yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
+    hold on;
+    plot(ave_s,ave_sortedsim,'r.','MarkerSize',10);
+    xlabel(columnheaders{i});
+    ylabel('mean rgb distance');
+    box off;
+%     text(simmeasures(:,i),simmeasures(:,end),letterpairs);
+    hold on;
+    title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq))]);
+    
+end
+
+
 
 
