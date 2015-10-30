@@ -26,7 +26,7 @@ s2=s1;
 m1=0;
 m2=m1;
 % correlation
-p=[0 .2 .4 .4 .5 .6  .8 1];
+p=-1*[0 .2 .4 .4 .5 .6 1];
 
 % colors for pvals
 clrs  = [ 1 0 0;
@@ -73,9 +73,9 @@ for j=1:length(p)
         
         %  s1 and s2 are the standard dev, ms are means, and p is correlation
         x = s1*u+m1;
-        y = s2*(p(j)*u+sqrt(1-p(j)^2)*v)+m2;
+%         y = s2*(p(j)*u+sqrt(1-p(j)^2)*v)+m2;
 
-%         y = s2*(p(j)*u+(1-p(j)^2)^(1/8)*v)+m2;
+        y = s2*(p(j)*u+(1-p(j)^(1)*v)+m2;
 %  compute correlation
         [rval(b) pval(b)]=corr(x',y','type','Spearman');
         

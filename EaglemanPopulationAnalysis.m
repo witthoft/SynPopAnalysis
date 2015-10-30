@@ -2,7 +2,7 @@
 % wrapper for analyzing the eagleman database generally
 
 % data and functions on my laptop
-cd ~/Dropbox/synesthesia/Eagleman/
+
 
 % this is the data
 
@@ -101,7 +101,8 @@ s_nansdistribution
 % and % color category for each letter
 fp_visualizeEagDB
 
-
+% get LAB
+p_Lab = RGB2Lab(p_rgb);
 
 
 
@@ -377,14 +378,22 @@ end
 
 % matrix which will hold all our distances
 % m comparisons by n subjects
-rgb_dists = nan(325,6588);
+% rgb_dists = nan(325,6588);
+lab_dists = nan(325,6588);
 
+% % calculate distance matrix for each subject
+% for i=1:length(p_rgb)
+% %     fill with calculated pdists
+% % comparisons with nans appear as nans
+%     rgb_dists(:,i)=pdist(squeeze(p_rgb(i,:,:)));
+% 
+% end
 
 % calculate distance matrix for each subject
-for i=1:length(p_rgb)
+for i=1:length(p_Lab)
 %     fill with calculated pdists
 % comparisons with nans appear as nans
-    rgb_dists(:,i)=pdist(squeeze(p_rgb(i,:,:)));
+    lab_dists(:,i)=pdist(squeeze(p_Lab(i,:,:)));
 
 end
 
@@ -392,12 +401,12 @@ end
 
 % meanrgbdist = nanmean(rgb_dists,2);
 % try median
-meanrgbdist = nanmedian(rgb_dists,2);
+meanlabdist = nanmedian(lab_dists,2);
 
  figure('Name','histogram of average distance between pairs of letters in rgb','Color',[1 1 1]);
  
- hist(meanrgbdist)
- xlabel('euclidian distance in rgb');
+ hist(meanlabdist)
+ xlabel('euclidian distance in L*a*b*');
  ylabel('count of letter pairs');
  
 %  plot against linear distance in sequence
@@ -407,12 +416,12 @@ meanrgbdist = nanmedian(rgb_dists,2);
 letterseqdists = pdist((1:26)');
 
 
-figure('Name','rgb distance vs alphabet distance','Color',[1 1 1]);
-
-plot(letterseqdists,meanrgbdist,'ro');
-box off;
-xlabel('alphabetic distance');
-ylabel('mean rgb distance');
+% figure('Name','L*a*b* distance vs alphabet distance','Color',[1 1 1]);
+% 
+% plot(letterseqdists,meanlabdist,'ro');
+% box off;
+% xlabel('alphabetic distance');
+% ylabel('mean lab distance');
 
 % looks like it doesn't matter much for english
 % add in correlation stuff later.
@@ -751,14 +760,18 @@ gibsonshapemeasure = [2.645751311
 
 
 % add in gibson shape differences
+% make a new matrix and add one extra column
 tempsimmeasures = zeros(325, size(simmeasures,2)+1);
-tempsimmeasures(:,end)=simmeasures(:,end);
+
 tempsimmeasures(:,1:end-1) = simmeasures;
 
 tempsimmeasures(:,end-1) = gibsonshapemeasure;
 
 
 simmeasures = tempsimmeasures;
+
+% make the last column the lab measures instead
+simmeasures(:,end) = meanlabdist;
 
 % had to strip the column headers which are here
 % last column is from Eagleman database
@@ -768,12 +781,12 @@ columnheaders = {'BC1989 SimRate Upper'	'BC1989 SimRate Lower'	'PG 1979 DiffRate
     'ggm1983ConfusB'	'Popp1964ConfusLower'	'BR1969ConfusLower' ...
     'BR1968ConfusUpper'	'Lewand 2000 FreqDiff'	'Lewand 2000 FreqSum' ...
     'Lewand FreqDiff/FreqSum'	'Ordinality Diff'	'OrdinalitySum'	'Ordinality Diff/Sum' ...
-    'Gibson shape','EaglemanRGBdists'};
+    'Gibson shape','EaglemanL*a*b*dists'};
 
 
 % can just plot them all
 
-for i=1:size(simmeasures,2)-1
+for i=1:(size(simmeasures,2)-1)
     
     
 %     compute a correlation between the measures
@@ -790,6 +803,8 @@ for i=1:size(simmeasures,2)-1
 %     rsquared
     rsq = 1 - SSresid/SSTotal;
 %     
+%   compare to matlab output
+    [s_rho, pval] = corr(simmeasures(:,i),simmeasures(:,end),'type','Spearman');
 
     figure('Name',columnheaders{i},'Color',[1 1 1]);
          plot(simmeasures(:,i),yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
@@ -800,16 +815,20 @@ for i=1:size(simmeasures,2)-1
     box off;
      text(simmeasures(:,i),simmeasures(:,end),letterpairs);
      hold on;
-     title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq))]);
+     title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
+         'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
 
 end
 
 
 
 
-% correlation of measures with one another
-figure;
-plotmatrix(simmeasures)
+
+% 
+% 
+% % correlation of measures with one another
+% figure;
+% plotmatrix(simmeasures)
 
 
 [rho pval] = corr(simmeasures,'rows','pairwise','type','Spearman');
@@ -834,8 +853,13 @@ colorbar;
 [sortedsim, sortedindx] = sort(simmeasures(:,end));
 
 % average our responses
+
+% since the inflation of the correlation is dependent on the smoothing we
+% can play with this
+binsize = 5;
+
 % reshape for averaging
-sortedsim=reshape(sortedsim,5,325/5);
+sortedsim=reshape(sortedsim,binsize,325/binsize);
 % average
 ave_sortedsim=mean(sortedsim);
 
@@ -852,7 +876,7 @@ for i=1:size(simmeasures,2)-1
     % ave sorted predictor
     s=simmeasures(sortedindx,i);
     % reshape for averaging (checked this bookkeeping and it looks right)
-    s=reshape(s,5,325/5);
+    s=reshape(s,binsize,325/binsize);
     % average the columns
     ave_s=mean(s);
     
@@ -870,20 +894,139 @@ for i=1:size(simmeasures,2)-1
     %     rsquared
     rsq = 1 - SSresid/SSTotal;
     %
+   %   compare to matlab output
+    [s_rho, pval] = corr(ave_s',ave_sortedsim','type','Spearman');
+
     
     figure('Name',columnheaders{i},'Color',[1 1 1]);
     plot(ave_s,yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
     hold on;
     plot(ave_s,ave_sortedsim,'r.','MarkerSize',10);
     xlabel(columnheaders{i});
-    ylabel('mean rgb distance');
+    ylabel('mean L*a*b* distance');
     box off;
 %     text(simmeasures(:,i),simmeasures(:,end),letterpairs);
     hold on;
-    title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq))]);
-    
+      title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
+         'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
+
 end
 
 
 
+
+
+
+
+
+% so this is really the wrong approach.  instead we should build a full
+% regression model with subject effects.  the one difficulty is that about
+% 35% of the subjects failed to match 1 or more letters.  however this
+% still leaves ~4300 subjects which is not bad.  we could also try the lme
+% approach but I'm not sure how much it would help us given the level of
+% complexity it introduces.
+
+% there ia another layer of difficulty in assessing the correlations.   the
+% assumption is that all the samples are independent, but since they are
+% all pairwise distances, that is not really true. for exaple, the measures
+% AB, AC, ... AZ all measure distances from A.  if A is far from everything
+% else, than these will tend to be large.  Waskom said people are aware of
+% this problem when doing RSM analyses generally (namely that your null
+% hypothesis might not really be 0).  They use the following method,
+% compute the correlation for each subject.  The correlation can be bootstrapped across
+% subjects (so random fx if you need).
+
+% for each subject you can also compute a null distribution using a
+% permutation approach.  this is done by shuffling the rows and columns of
+% the matrix while retaining their connection to one another.  so for
+% example  rowA columnA   could go to rowB columnB.  this mixes up the
+% distances while maintaining the dependences that arise from having one
+% endpoint in the distance across 25 comparisons....what happens with the
+% diagonal?
+
+
+
+% can plot distributions correlations of individual subjects with each measures
+
+for i=1:(size(simmeasures,2)-1)
+    
+    
+
+%   compare to matlab output
+    [rho, pval] = corr(simmeasures(:,i),lab_dists,'type','Spearman','row','pairwise');
+
+    figure('Name',columnheaders{i},'Color',[1 1 1]);
+    subplot(1,2,1);
+       hist(rho,-1:.1:1);
+    xlabel('rho');
+    ylabel('count of subjects');
+    box off;
+     hold on;
+     set(gca,'XLim',[-1 1]);
+     subplot(1,2,2);
+       hist(pval,0:.025:1);
+    xlabel('rho');
+    ylabel('count of subjects');
+    box off;
+     hold on;
+     set(gca,'XLim',[0 1]);
+  
+
+end
+
+
+
+% this still isn't right as the correlations are still calculated as though
+% all the points are independent and compared to a null which is
+% distributed around 0. one way to approach this is to summarize each
+% subject against its own permuted null.  
+
+% 1.  for each subject we have a rho
+% 2.  for each subject permute data and calculate rho many times
+% 3.  percentile of data rho within permuted rho distribution
+
+
+distancemeasure = 3; %pick a column to do
+
+numpermutes = 5000;
+
+permute_rhos = zeros(numpermutes,1); %for each subjects null
+
+pctlarger = nan(length(lab_dists),1); %percent of shuffles larger than observed for each subject
+
+% for each subject
+for s=1:length(lab_dists)
+    
+%     there must be a faster way
+% 1. make distance vector for a subject into full matrix
+    labsquare = squareform(lab_dists(:,s));
+    
+%     do permutations
+    for p= 1:numpermutes
+% 2. get permutationindex
+    [pletters pindex] = shuffle(1:26);
+% 3. permute cols
+    plabsquare = labsquare(:,pletters);
+% 4. permute rows
+    plabsquare =plabsquare(pletters,:);
+% 5. unpack upper diagonal
+% this cheat won't work if some distances are actually zero
+    tplabsquare = plabsquare';
+    permdist = tplabsquare(tril(true(size(plabsquare)),-1));
+    
+    
+% 6.compute a correlation
+    permute_rhos(p) = corr(simmeasures(:,distancemeasure),permdist, ...
+        'type','Spearman','rows','pairwise');
+    end    
+
+% 7.  get actual correlation
+    rho = corr(simmeasures(:,distancemeasure),lab_dists(:,s), ...
+        'type','Spearman','rows','pairwise');
+% 8. get percent of correlations in permute larger than observed
+    pctlarger(s) = length(find(permute_rhos>=rho))/numpermutes;
+    
+    
+    
+end
 
