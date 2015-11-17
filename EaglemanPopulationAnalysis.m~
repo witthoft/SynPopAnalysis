@@ -333,6 +333,14 @@ f_colorspaceRepBars(p_rgb,roundvec,'allmatches')
 
 % define rounding
 % in function above...fix
+% also rounding is a bad idea.  if data are random uniform distributed when
+% rounded they will appear gaussian as size of space which rounds to a
+% point is reduced at edges.  so for example if rounding points are 0 .5 1,
+% then 0-.25 rounds to 0, .25 to .75 rounds to .5, and .75 to 1 rounds to
+% 1.  the plots as is actually underestimate the size of the effect because
+% the rounding is working against it
+% easiest is probably to divide rgb into cubes and then interpolate to the
+% center of each cube.
 
 % pull out magnet subset
 magnetmatches = p_rgb(find(syntype==2),:,:);
@@ -408,6 +416,122 @@ meanlabdist = nanmedian(lab_dists,2);
  hist(meanlabdist)
  xlabel('euclidian distance in L*a*b*');
  ylabel('count of letter pairs');
+ 
+%  
+% %  let's get histogram of distances for every possible letter pair
+% 
+% if ~exist('pairwisedists','dir')
+%     mkdir('pairwisedists');
+% end
+% 
+% for i=1:325
+%     
+%  
+%  figure('Name',['histogram of L*a*b* distances for ' letterpairs{i}],'Color',[1 1 1]);
+%  
+%  hist(lab_dists(i,:));
+%  xlabel('euclidian distance in L*a*b*');
+%  ylabel('num of subjects');
+%  box off;
+%  
+% %  save the figure
+% 
+% saveas(gcf,['pairwisedists/letterpairs{i} 'hist.png'],'png');
+% 
+% 
+% % close
+%     close(gcf);
+%  
+% end
+%  
+ 
+
+% what would the distances look like if they were chosen randomly?
+
+% from RGB2Lab.m
+%  Values for L are in the
+% range [0,100] while a and b are roughly in the range [-110,110].  The
+% output is of type double.
+
+% generate a dataset
+
+% rnadom values on unit interval
+randLab = rand(size(p_Lab));
+% scale to lab
+% L*
+randLab(:,:,1) = 0+(100-0).*randLab(:,:,1);
+% a*
+randLab(:,:,2) = (110--110).*randLab(:,:,2)-110;
+% b*
+randLab(:,:,3) = (110--110).*randLab(:,:,3)-110;
+
+% randLabdists
+% calculate distance matrix for each subject
+randlab_dists = nan(325,6588);
+
+for i=1:length(randLab)
+%     fill with calculated pdists
+% comparisons with nans appear as nans
+    randlab_dists(:,i)=pdist(squeeze(randLab(i,:,:)));
+
+end
+
+% try median
+medrandlabdist = nanmedian(randlab_dists,2);
+
+ figure('Name','histogram of average distance between pairs of letters in L*a*b* random data','Color',[1 1 1]);
+ 
+ hist(medrandlabdist)
+ xlabel('euclidian distance in L*a*b*');
+ ylabel('count of letter pairs');
+ box off;
+
+ 
+ 
+%  random data looks very different.  in fact average distance would be
+%  much larger and much more tightly distributed.  however, this is
+%  probably because the gamut of Lab is larger than RGB so its not
+%  surprising that the distances are smaller
+% let's make random rgb data, pass it through RGB2Lab and see what we get
+
+ 
+ 
+% random values on unit interval
+randrgb = rand(size(p_rgb));
+% convert to lab
+randrgb2lab = RGB2Lab(randrgb);
+
+% its obvious that RGB and LAB have different ranges.  for example the
+% minimum L value after suhuffling is around 10 instead of 0.  the max is
+% >99
+% when the data are randomly chosen in RGB first it now appears as if the
+% average distance between a pair of letter is larger than if you just
+% chose points randomly.  this is probably not that surprising since there
+% is a tendencry to pick extreme values in at least one of the RGB
+% channels.
+
+
+% randrgbdists
+% calculate distance matrix for each subject
+randrgb2lab_dists = nan(325,6588);
+
+for i=1:length(randrgb2lab)
+%     fill with calculated pdists
+% comparisons with nans appear as nans
+    randrgb2lab_dists(:,i)=pdist(squeeze(randrgb2lab(i,:,:)));
+
+end
+
+% try median
+medrandrgb2labdist = nanmedian(randrgb2lab_dists,2);
+
+ figure('Name','histogram of average distance between pairs of letters in L*a*b* random data in RGB transformed','Color',[1 1 1]);
+ 
+ hist(medrandrgb2labdist)
+ xlabel('euclidian distance in L*a*b*');
+ ylabel('count of letter pairs');
+ box off;
+ 
  
 %  plot against linear distance in sequence
 
@@ -780,11 +904,16 @@ columnheaders = {'BC1989 SimRate Upper'	'BC1989 SimRate Lower'	'PG 1979 DiffRate
     'PG1979 RT Avg'	'KB FeatDist'	'g1979Confus'	'ggm1983ConfusA' ...
     'ggm1983ConfusB'	'Popp1964ConfusLower'	'BR1969ConfusLower' ...
     'BR1968ConfusUpper'	'Lewand 2000 FreqDiff'	'Lewand 2000 FreqSum' ...
-    'Lewand FreqDiff/FreqSum'	'Ordinality Diff'	'OrdinalitySum'	'Ordinality Diff/Sum' ...
-    'Gibson shape','EaglemanL*a*b*dists'};
+    'Lewand FreqDiff div FreqSum'	'Ordinality Diff'	'OrdinalitySum'	'Ordinality Diff div Sum' ...
+    'Gibson shape','EaglemanLabdists'};
 
 
 % can just plot them all
+
+
+if ~exist('correlationsAveAcrossSubs','dir')
+    mkdir('correlationsAveAcrossSubs');
+end
 
 for i=1:(size(simmeasures,2)-1)
     
@@ -811,12 +940,15 @@ for i=1:(size(simmeasures,2)-1)
          hold on;
     plot(simmeasures(:,i),simmeasures(:,end),'r.','MarkerSize',1);
     xlabel(columnheaders{i});
-    ylabel('mean rgb distance');
+    ylabel('mean L*a*b* distance');
     box off;
      text(simmeasures(:,i),simmeasures(:,end),letterpairs);
      hold on;
      title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
          'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
+     
+     saveas(gcf,['correlationsAveAcrossSubs/' columnheaders{i} '.png'],'png');
+     close gcf;
 
 end
 
@@ -866,51 +998,56 @@ ave_sortedsim=mean(sortedsim);
 % sort our letter pairs to match
 sortedletterpairs = letterpairs(sortedindx);
 
-
-
-
-% fastest way is to reshape each matrix and compute average?
-
-for i=1:size(simmeasures,2)-1
-    
-    % ave sorted predictor
-    s=simmeasures(sortedindx,i);
-    % reshape for averaging (checked this bookkeeping and it looks right)
-    s=reshape(s,binsize,325/binsize);
-    % average the columns
-    ave_s=mean(s);
-    
-    %     compute a correlation between the measures
-    %  linear regression
-    p=polyfit(ave_s,ave_sortedsim,1);       
-    %   points predicted by fit line
-    yfit=polyval(p,ave_s);
-    %   get the residuals
-    yresid=ave_sortedsim-yfit;
-    %    sumsquaredresidual
-    SSresid=sum(yresid.^2);
-    %     total sum of squares
-    SSTotal=(length(ave_sortedsim)-1)*var(ave_sortedsim);
-    %     rsquared
-    rsq = 1 - SSresid/SSTotal;
-    %
-   %   compare to matlab output
-    [s_rho, pval] = corr(ave_s',ave_sortedsim','type','Spearman');
-
-    
-    figure('Name',columnheaders{i},'Color',[1 1 1]);
-    plot(ave_s,yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
-    hold on;
-    plot(ave_s,ave_sortedsim,'r.','MarkerSize',10);
-    xlabel(columnheaders{i});
-    ylabel('mean L*a*b* distance');
-    box off;
-%     text(simmeasures(:,i),simmeasures(:,end),letterpairs);
-    hold on;
-      title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
-         'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
-
-end
+% if ~exist('correlationsAveAcrossSubsAndLetterPairs','dir')
+%     mkdir('correlationsAveAcrossSubsAndLetterPairs');
+% end
+% 
+% 
+% % fastest way is to reshape each matrix and compute average?
+% 
+% for i=1:size(simmeasures,2)-1
+%     
+%     % ave sorted predictor
+%     s=simmeasures(sortedindx,i);
+%     % reshape for averaging (checked this bookkeeping and it looks right)
+%     s=reshape(s,binsize,325/binsize);
+%     % average the columns
+%     ave_s=mean(s);
+%     
+%     %     compute a correlation between the measures
+%     %  linear regression
+%     p=polyfit(ave_s,ave_sortedsim,1);       
+%     %   points predicted by fit line
+%     yfit=polyval(p,ave_s);
+%     %   get the residuals
+%     yresid=ave_sortedsim-yfit;
+%     %    sumsquaredresidual
+%     SSresid=sum(yresid.^2);
+%     %     total sum of squares
+%     SSTotal=(length(ave_sortedsim)-1)*var(ave_sortedsim);
+%     %     rsquared
+%     rsq = 1 - SSresid/SSTotal;
+%     %
+%    %   compare to matlab output
+%     [s_rho, pval] = corr(ave_s',ave_sortedsim','type','Spearman');
+% 
+%     
+%     figure('Name',columnheaders{i},'Color',[1 1 1]);
+%     plot(ave_s,yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
+%     hold on;
+%     plot(ave_s,ave_sortedsim,'r.','MarkerSize',10);
+%     xlabel(columnheaders{i});
+%     ylabel('mean L*a*b* distance');
+%     box off;
+% %     text(simmeasures(:,i),simmeasures(:,end),letterpairs);
+%     hold on;
+%       title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
+%          'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
+%      
+%        saveas(gcf,['correlationsAveAcrossSubsAndLetterPairs/' columnheaders{i} '.png'],'png');
+%      close gcf;
+% 
+% end
 
 
 
@@ -965,7 +1102,7 @@ for i=1:(size(simmeasures,2)-1)
      set(gca,'XLim',[-1 1]);
      subplot(1,2,2);
        hist(pval,0:.025:1);
-    xlabel('rho');
+    xlabel('pval');
     ylabel('count of subjects');
     box off;
      hold on;
@@ -973,6 +1110,16 @@ for i=1:(size(simmeasures,2)-1)
   
 
 end
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % 
+
+% % %   made these figures, might have to rerun to do any stats
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
 
 
 
@@ -986,46 +1133,68 @@ end
 % 3.  percentile of data rho within permuted rho distribution
 
 
-distancemeasure = 3; %pick a column to do
-
-numpermutes = 5000;
-
-permute_rhos = zeros(numpermutes,1); %for each subjects null
-
-pctlarger = nan(length(lab_dists),1); %percent of shuffles larger than observed for each subject
-
-% for each subject
-for s=1:length(lab_dists)
-    
-%     there must be a faster way
-% 1. make distance vector for a subject into full matrix
-    labsquare = squareform(lab_dists(:,s));
-    
-%     do permutations
-    for p= 1:numpermutes
-% 2. get permutationindex
-    [pletters pindex] = shuffle(1:26);
-% 3. permute cols
-    plabsquare = labsquare(:,pletters);
-% 4. permute rows
-    plabsquare =plabsquare(pletters,:);
-% 5. unpack upper diagonal
-% this cheat won't work if some distances are actually zero
-    permdist = nonzeros(triu(plabsquare));
-    
-    
-% 6.compute a correlation
-    permute_rhos(p) = corr(simmeasures(:,distancemeasure),permdist, ...
-        'type','Spearman','rows','pairwise');
-    end    
-
-% 7.  get actual correlation
-    rho = corr(simmeasures(:,distancemeasure),lab_dists(:,s), ...
-        'type','Spearman','rows','pairwise');
-% 8. get percent of correlations in permute larger than observed
-    pctlarger(s) = length(find(permute_rhos>=rho))/numpermutes;
-    
-    
-    
-end
-
+% % distancemeasure = 13; %pick a column to do
+% 
+% numpermutes = 100;
+% 
+% permute_rhos = zeros(numpermutes,1); %for each subjects null
+% 
+% pctlarger = nan(length(lab_dists),1); %percent of shuffles larger than observed for each subject
+% 
+% if ~exist('bootstrappedInd','dir')
+%     mkdir('bootstrappedInd');
+% end
+% 
+% for distancemeasure=1:(length(columnheaders)-1)
+%     distancemeasure
+% % for each subject
+% for s=1:length(lab_dists)
+% %     s
+% %     
+%     
+% %     there must be a faster way
+% % 1. make distance vector for a subject into full matrix
+%     labsquare = squareform(lab_dists(:,s));
+%     
+% %     do permutations
+%     for p= 1:numpermutes
+% % 2. get permutationindex
+%     [pletters pindex] = shuffle(1:26);
+% % 3. permute cols
+%     plabsquare = labsquare(:,pletters);
+% % 4. permute rows
+%     plabsquare =plabsquare(pletters,:);
+% % 5. unpack upper diagonal
+% % this cheat won't work if some distances are actually zero
+%     tplabsquare = plabsquare';
+%     permdist = tplabsquare(tril(true(size(plabsquare)),-1));
+%     
+%     
+% % 6.compute a correlation
+%     permute_rhos(p) = corr(simmeasures(:,distancemeasure),permdist, ...
+%         'type','Spearman','rows','pairwise');
+%     end    
+% 
+% % 7.  get actual correlation
+%     rho = corr(simmeasures(:,distancemeasure),lab_dists(:,s), ...
+%         'type','Spearman','rows','pairwise');
+% % 8. get percent of correlations in permute larger than observed
+%     pctlarger(s) = length(find(permute_rhos>=rho))/numpermutes;
+%     
+%     
+%     
+% end
+% 
+% 
+% 
+% % make a figure
+% figure('Name',columnheaders{distancemeasure} , 'Color', [1 1 1])
+% hist(pctlarger,0:.05:1);
+% box off;
+% ylabel('count of subjects');
+% xlabel('percentile of observed subject correlation in distribution of nulls');
+% 
+% saveas(gcf,['bootstrappedInd/' columnheaders{distancemeasure}, '.png'],'png');
+% close gcf;
+% end
+% 

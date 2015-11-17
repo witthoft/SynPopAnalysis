@@ -162,7 +162,7 @@ disp(['letter  black  white  red    green  yellow blue   brown  purple pink   or
 for i=1:26
     [counts, bins]=hist(dbNumbered(:,i),11);
     counts  = counts/length(dbLabeled);
-    disp([letters{i} '       ' num2str(counts,'%0.2f   ')]);
+    disp([letters(i) '       ' num2str(counts,'%0.2f   ')]);
     
 end
 
@@ -240,16 +240,44 @@ allletterhists = [];
 allroundedclrs = [];
 clrctr = 1;
 
+
+% want to smooth the space a little bit
+% one approach is simply to round towards some set of values
+%     roundvec = 0:.25:1; %(1331 locations)
+%     roundvec = 0:1/3:1;
+%     roundvec = 0:.5:1;
+    
+% this introduces a problem because of edge effects.  so for example if your 
+% points are 0, .5, and 1, then 0 gets stuff from the range 0-.25, .5 gets
+% % .25-.75, and 1 gets .75-1.   since these are not absolute, you could
+% normalize for the area on the fly
+
+
+
+
+% a second possibility is to do things histogram style and separate the
+% interval into equal bins and round to the center of those bins.  here you
+% don't have to normalize for the area, but since a lot of our data is at
+% the edges it may not show that off as well
+% here we would use linspace
+
+numbins = 5;
+
+% add 2 to numbins to get edges
+roundvec = linspace(0,1,numbins+2);
+
+% now drop edges
+roundvec = roundvec(2:end-1);
+
+
+
 % for each letter
 for i=1:26
     clrs = squeeze(p_rgb(:,i,:));
     %  all rgb values are between 0 and 1
     % we could round to the nearest .1
     % use downloaded function roundtowardvec
-%     roundvec = 0:.25:1; %(1331 locations)
-%     roundvec = 0:1/3:1;
-    roundvec = 0:.5:1;
-    roundedclrs = roundtowardvec(clrs,roundvec);
+
     
     allroundedclrs = [allroundedclrs; roundedclrs];
     

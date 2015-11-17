@@ -95,6 +95,9 @@ figure('name',['distribution across rgb space for ' dataname],'Color',[1 1 1]);
 
 BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)',10*(sizes(p)/sum(sizes))',allletterhists(p,1:3));
 
+BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)',5*(sizes(p)/sum(sizes))',allletterhists(p,1:3));
+
+
 % values range from 1 to 1898
 % try using log scaling
 % this works but hard to see pattern
