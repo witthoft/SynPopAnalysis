@@ -390,12 +390,12 @@ end
 lab_dists = nan(325,6588);
 
 % % calculate distance matrix for each subject
-% for i=1:length(p_rgb)
-% %     fill with calculated pdists
-% % comparisons with nans appear as nans
-%     rgb_dists(:,i)=pdist(squeeze(p_rgb(i,:,:)));
-% 
-% end
+for i=1:length(p_rgb)
+%     fill with calculated pdists
+% comparisons with nans appear as nans
+    rgb_dists(:,i)=pdist(squeeze(p_rgb(i,:,:)));
+
+end
 
 % calculate distance matrix for each subject
 for i=1:length(p_Lab)
@@ -420,30 +420,30 @@ meanlabdist = nanmedian(lab_dists,2);
 %  
 % %  let's get histogram of distances for every possible letter pair
 % 
-% if ~exist('pairwisedists','dir')
-%     mkdir('pairwisedists');
-% end
-% 
-% for i=1:325
-%     
-%  
-%  figure('Name',['histogram of L*a*b* distances for ' letterpairs{i}],'Color',[1 1 1]);
-%  
-%  hist(lab_dists(i,:));
-%  xlabel('euclidian distance in L*a*b*');
-%  ylabel('num of subjects');
-%  box off;
-%  
-% %  save the figure
-% 
+if ~exist('pairwisedists','dir')
+    mkdir('pairwisedists');
+end
+
+for i=1:325
+    
+ 
+ figure('Name',['histogram of L*a*b* distances for ' letterpairs{i}],'Color',[1 1 1]);
+ 
+ hist(lab_dists(i,:));
+ xlabel('euclidian distance in L*a*b*');
+ ylabel('num of subjects');
+ box off;
+ 
+%  save the figure
+
 % saveas(gcf,['pairwisedists/letterpairs{i} 'hist.png'],'png');
-% 
-% 
-% % close
-%     close(gcf);
-%  
-% end
-%  
+
+
+% close
+    close(gcf);
+ 
+end
+ 
  
 
 % what would the distances look like if they were chosen randomly?
@@ -948,7 +948,7 @@ for i=1:(size(simmeasures,2)-1)
          'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
      
      saveas(gcf,['correlationsAveAcrossSubs/' columnheaders{i} '.png'],'png');
-     close gcf;
+%      close gcf;
 
 end
 
@@ -1082,26 +1082,109 @@ sortedletterpairs = letterpairs(sortedindx);
 % diagonal?
 
 
+if ~exist('avesubjrhos','dir')
+    mkdir('avesubjrhos');
+end
 
 % can plot distributions correlations of individual subjects with each measures
+
+clear rho pval
 
 for i=1:(size(simmeasures,2)-1)
     
     
 
 %   compare to matlab output
-    [rho, pval] = corr(simmeasures(:,i),lab_dists,'type','Spearman','row','pairwise');
+    [rho{i}, pval{i}] = corr(simmeasures(:,i),lab_dists,'type','Spearman','row','pairwise');
 
     figure('Name',columnheaders{i},'Color',[1 1 1]);
     subplot(1,2,1);
-       hist(rho,-1:.1:1);
+       hist(rho{i},-.3:.01:.3);
+    xlabel('rho');
+    ylabel('count of subjects');
+    box off;
+     hold on;
+     plot(0,0:2:max(hist(rho{i},-.3:.01:.3))+20,'r');
+     set(gca,'XLim',[-.3 .3]);
+     subplot(1,2,2);
+       hist(pval{i},0:.025:1);
+    xlabel('pval');
+    ylabel('count of subjects');
+    box off;
+     hold on;
+     set(gca,'XLim',[0 1]);
+     
+%      save the figures
+  
+
+end
+
+
+% since the points are not independent random samples (for example
+% distances from A are not independent B-Z) need to make a null
+% distribution of correlations using permutation
+% effects are already very small all within -0.07 0.07
+
+
+% so what is the permutation here?  seems like you want to permute every
+% subjects distance data while maintaining the dependencies
+
+
+% so for each distance measure
+for i=1:(size(simmeasures,2)-1)
+    
+%    do some permutations
+    numpermutes = 100;
+    for n=1:numpermutes
+    permute_rhos = zeros(numpermutes,1); %for each distance measures null
+
+        
+    end
+% 
+
+
+% % for each subject
+% for s=1:length(lab_dists)
+% %     s
+% %     
+%     
+% %     there must be a faster way
+% % 1. make distance vector for a subject into full matrix
+%     labsquare = squareform(lab_dists(:,s));
+%     
+% %     do permutations
+%     for p= 1:numpermutes
+% % 2. get permutationindex
+%     [pletters pindex] = shuffle(1:26);
+% % 3. permute cols
+%     plabsquare = labsquare(:,pletters);
+% % 4. permute rows
+%     plabsquare =plabsquare(pletters,:);
+% % 5. unpack upper diagonal
+% % this cheat won't work if some distances are actually zero
+%     tplabsquare = plabsquare';
+%     permdist = tplabsquare(tril(true(size(plabsquare)),-1));
+%     
+%     
+% % 6.compute a correlation
+%     permute_rhos(p) = corr(simmeasures(:,distancemeasure),permdist, ...
+%         'type','Spearman','rows','pairwise');
+%     end    
+
+
+%   compare to matlab output
+    [rho{i}, pval{i}] = corr(simmeasures(:,i),lab_dists,'type','Spearman','row','pairwise');
+
+    figure('Name',columnheaders{i},'Color',[1 1 1]);
+    subplot(1,2,1);
+       hist(rho{i},-1:.1:1);
     xlabel('rho');
     ylabel('count of subjects');
     box off;
      hold on;
      set(gca,'XLim',[-1 1]);
      subplot(1,2,2);
-       hist(pval,0:.025:1);
+       hist(pval{i},0:.025:1);
     xlabel('pval');
     ylabel('count of subjects');
     box off;

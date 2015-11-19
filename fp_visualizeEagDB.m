@@ -277,6 +277,7 @@ for i=1:26
     %  all rgb values are between 0 and 1
     % we could round to the nearest .1
     % use downloaded function roundtowardvec
+    roundedclrs = roundtowardvec(clrs,roundvec);
 
     
     allroundedclrs = [allroundedclrs; roundedclrs];
