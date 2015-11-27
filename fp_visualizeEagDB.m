@@ -253,83 +253,83 @@ clrctr = 1;
 % normalize for the area on the fly
 
 
-
-
-% a second possibility is to do things histogram style and separate the
-% interval into equal bins and round to the center of those bins.  here you
-% don't have to normalize for the area, but since a lot of our data is at
-% the edges it may not show that off as well
-% here we would use linspace
-
-numbins = 5;
-
-% add 2 to numbins to get edges
-roundvec = linspace(0,1,numbins+2);
-
-% now drop edges
-roundvec = roundvec(2:end-1);
-
-
-
-% for each letter
-for i=1:26
-    clrs = squeeze(p_rgb(:,i,:));
-    %  all rgb values are between 0 and 1
-    % we could round to the nearest .1
-    % use downloaded function roundtowardvec
-    roundedclrs = roundtowardvec(clrs,roundvec);
-
-    
-    allroundedclrs = [allroundedclrs; roundedclrs];
-    
-    % want to be able to scale our plots (either alpha or markersize) using the
-    % number of datapoints in each bin.  3d hist code in matlab looks like a
-    % pain so we could do it in a loop?
-    
-    counter=1;
-    bbplotmatrix = zeros(length(roundvec)^3,4);
-    
-    for a=1:length(roundvec)
-        for b=1:length(roundvec)
-            for c=1:length(roundvec)
-                bbplotmatrix(counter,:) = [roundvec(a) roundvec(b) roundvec(c) ...
-                    sum(ismember(roundedclrs, [roundvec(a) roundvec(b) roundvec(c)],...
-                    'rows'))];
-                counter=counter+1;
-            end
-        end
-    end
-    % less than a minute
-
-    
-%     can add back in letter plots when we need them
-    
-%     figure('name',['distribution across rgb space for ' letters{i}],'Color',[1 1 1]);
+% 
+% 
+% % a second possibility is to do things histogram style and separate the
+% % interval into equal bins and round to the center of those bins.  here you
+% % don't have to normalize for the area, but since a lot of our data is at
+% % the edges it may not show that off as well
+% % here we would use linspace
+% 
+% numbins = 5;
+% 
+% % add 2 to numbins to get edges
+% roundvec = linspace(0,1,numbins+2);
+% 
+% % now drop edges
+% roundvec = roundvec(2:end-1);
+% 
+% 
+% 
+% % for each letter
+% for i=1:26
+%     clrs = squeeze(p_rgb(:,i,:));
+%     %  all rgb values are between 0 and 1
+%     % we could round to the nearest .1
+%     % use downloaded function roundtowardvec
+%     roundedclrs = roundtowardvec(clrs,roundvec);
+% 
 %     
-%  
+%     allroundedclrs = [allroundedclrs; roundedclrs];
 %     
-%     sizes=bbplotmatrix(:,4);
-%  
+%     % want to be able to scale our plots (either alpha or markersize) using the
+%     % number of datapoints in each bin.  3d hist code in matlab looks like a
+%     % pain so we could do it in a loop?
 %     
-%     % need to get rid of zeros
-%     p = find(sizes~=0);
+%     counter=1;
+%     bbplotmatrix = zeros(length(roundvec)^3,4);
 %     
-%     %     BUBBLEPLOT3(x,y,z,r,c), where c is a rgb-triplet array (in [0,1])
-%     %     with numel(x) rows, plots bubbles with colours specified by c.
+%     for a=1:length(roundvec)
+%         for b=1:length(roundvec)
+%             for c=1:length(roundvec)
+%                 bbplotmatrix(counter,:) = [roundvec(a) roundvec(b) roundvec(c) ...
+%                     sum(ismember(roundedclrs, [roundvec(a) roundvec(b) roundvec(c)],...
+%                     'rows'))];
+%                 counter=counter+1;
+%             end
+%         end
+%     end
+%     % less than a minute
+% 
 %     
-%     BUBBLEPLOT3(bbplotmatrix(p,1)',bbplotmatrix(p,2)',bbplotmatrix(p,3)',(sizes(p)/sum(sizes))',bbplotmatrix(p,1:3));
-%     % scatter3(roundedclrs(:,1),roundedclrs(:,i,2),roundedclrs(:,i,3))
+% %     can add back in letter plots when we need them
+%     
+% %     figure('name',['distribution across rgb space for ' letters{i}],'Color',[1 1 1]);
+% %     
+% %  
+% %     
+% %     sizes=bbplotmatrix(:,4);
+% %  
+% %     
+% %     % need to get rid of zeros
+% %     p = find(sizes~=0);
+% %     
+% %     %     BUBBLEPLOT3(x,y,z,r,c), where c is a rgb-triplet array (in [0,1])
+% %     %     with numel(x) rows, plots bubbles with colours specified by c.
+% %     
+% %     BUBBLEPLOT3(bbplotmatrix(p,1)',bbplotmatrix(p,2)',bbplotmatrix(p,3)',(sizes(p)/sum(sizes))',bbplotmatrix(p,1:3));
+% %     % scatter3(roundedclrs(:,1),roundedclrs(:,i,2),roundedclrs(:,i,3))
+% %     
+% %     
+% %     xlabel('Red');ylabel('Green');zlabel('Blue');
+%     
+%     %     collect everything into a giant matrix
+%     
+%     allletterhists = [allletterhists; bbplotmatrix];
 %     
 %     
-%     xlabel('Red');ylabel('Green');zlabel('Blue');
-    
-    %     collect everything into a giant matrix
-    
-    allletterhists = [allletterhists; bbplotmatrix];
-    
-    
-end
-
+% end
+% 
 
 
 
@@ -337,113 +337,113 @@ end
 % looks odd, because there are almost never strong values for blue
 % have to sum across all the letters to get the whole distribution
 
-% make bubble plot for everything
+% % make bubble plot for everything
+% 
+% figure('name',['distribution across rgb space for all letters'],'Color',[1 1 1]);
+% 
+% %    SCATTER3(X,Y,Z,S,C) displays colored circles at the locations
+% %     specified by the vectors X,Y,Z (which must all be the same size).  The
+% %     area of each marker is determined by the values in the vector S (in
+% %     points^2) and the colors of each marker are based on the values in C.  S
+% %     can be a scalar, in which case all the markers are drawn the same
+% %     size, or a vector the same length as X,Y, and Z
+% 
+% sizes=allletterhists(:,4);
+% 
+% % will need to scale size
+% % try % of max
+% % s = bplotmatrix(:,4)/max(bplotmatrix(:,4));
+% 
+% % need to get rid of zeros
+% p = find(sizes~=0);
+% 
+% %     BUBBLEPLOT3(x,y,z,r,c), where c is a rgb-triplet array (in [0,1])
+% %     with numel(x) rows, plots bubbles with colours specified by c.
+% 
+% BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)',10*(sizes(p)/sum(sizes))',allletterhists(p,1:3));
+% 
+% % values range from 1 to 1898
+% % try using log scaling
+% % this works but hard to see pattern
+% % BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)',(log(s(p))/(10*max(log(s(p)))))',allletterhists(p,1:3));
+% 
+% 
+% % scatter3(roundedclrs(:,1),roundedclrs(:,i,2),roundedclrs(:,i,3))
+% 
+% 
+% xlabel('Red');ylabel('Green');zlabel('Blue');
+% 
+% 
+% 
+% 
+% 
+% 
+% % pair it with a uniform distribution
+% figure('name',['uniform distribution across rgb space'],'Color',[1 1 1]);
+% 
+% % total number of matches
+% numletterswithmatches = sum(sizes(p));
+% % number for each point
+% u = numletterswithmatches/(length(roundvec)^3);
+% 
+%  bplotmatrix(:,4) = u;
+% 
+%  BUBBLEPLOT3(bplotmatrix(:,1)',bplotmatrix(:,2)',bplotmatrix(:,3)',(10*bplotmatrix(:,4)/numletterswithmatches)',bplotmatrix(:,1:3));
+% xlabel('Red');ylabel('Green');zlabel('Blue');
+% 
 
-figure('name',['distribution across rgb space for all letters'],'Color',[1 1 1]);
-
-%    SCATTER3(X,Y,Z,S,C) displays colored circles at the locations
-%     specified by the vectors X,Y,Z (which must all be the same size).  The
-%     area of each marker is determined by the values in the vector S (in
-%     points^2) and the colors of each marker are based on the values in C.  S
-%     can be a scalar, in which case all the markers are drawn the same
-%     size, or a vector the same length as X,Y, and Z
-
-sizes=allletterhists(:,4);
-
-% will need to scale size
-% try % of max
-% s = bplotmatrix(:,4)/max(bplotmatrix(:,4));
-
-% need to get rid of zeros
-p = find(sizes~=0);
-
-%     BUBBLEPLOT3(x,y,z,r,c), where c is a rgb-triplet array (in [0,1])
-%     with numel(x) rows, plots bubbles with colours specified by c.
-
-BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)',10*(sizes(p)/sum(sizes))',allletterhists(p,1:3));
-
-% values range from 1 to 1898
-% try using log scaling
-% this works but hard to see pattern
-% BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)',(log(s(p))/(10*max(log(s(p)))))',allletterhists(p,1:3));
-
-
-% scatter3(roundedclrs(:,1),roundedclrs(:,i,2),roundedclrs(:,i,3))
-
-
-xlabel('Red');ylabel('Green');zlabel('Blue');
-
-
-
-
-
-
-% pair it with a uniform distribution
-figure('name',['uniform distribution across rgb space'],'Color',[1 1 1]);
-
-% total number of matches
-numletterswithmatches = sum(sizes(p));
-% number for each point
-u = numletterswithmatches/(length(roundvec)^3);
-
- bplotmatrix(:,4) = u;
-
- BUBBLEPLOT3(bplotmatrix(:,1)',bplotmatrix(:,2)',bplotmatrix(:,3)',(10*bplotmatrix(:,4)/numletterswithmatches)',bplotmatrix(:,1:3));
-xlabel('Red');ylabel('Green');zlabel('Blue');
-
-
-
-% let's see how all letters are distributed in rgb
-% find all non nan rows
-p=find(~isnan(allroundedclrs(:,1)));
-
-
-figure('Name','histograms of rgb channels across letters','Color',[1 1 1]);
-subplot(3,1,1);
-[r bins] =hist(allroundedclrs(p,1),roundvec);
-bar(bins, r/sum(r), 'barwidth',1);
-box off;
-xlabel('red');
-ylabel('number of letters');
-subplot(3,1,2);
-[g, bins]=hist(allroundedclrs(p,2),roundvec);
-bar(bins, g/sum(g), 'barwidth',1);
-box off;
-xlabel('green');
-ylabel('number of letters');
-subplot(3,1,3);
-[b, bins] = hist(allroundedclrs(p,3),roundvec);
-bar(bins, b/sum(b), 'barwidth',1);
-box off;
-xlabel('blue');
-ylabel('number of letters');
+% 
+% % let's see how all letters are distributed in rgb
+% % find all non nan rows
+% p=find(~isnan(allroundedclrs(:,1)));
+% 
+% 
+% figure('Name','histograms of rgb channels across letters','Color',[1 1 1]);
+% subplot(3,1,1);
+% [r bins] =hist(allroundedclrs(p,1),roundvec);
+% bar(bins, r/sum(r), 'barwidth',1);
+% box off;
+% xlabel('red');
+% ylabel('number of letters');
+% subplot(3,1,2);
+% [g, bins]=hist(allroundedclrs(p,2),roundvec);
+% bar(bins, g/sum(g), 'barwidth',1);
+% box off;
+% xlabel('green');
+% ylabel('number of letters');
+% subplot(3,1,3);
+% [b, bins] = hist(allroundedclrs(p,3),roundvec);
+% bar(bins, b/sum(b), 'barwidth',1);
+% box off;
+% xlabel('blue');
+% ylabel('number of letters');
 
 
 % let's see how all CHROMATIC matches are distrbuted in rgb
 % remove rows that have equal values in all three channels
 % have already removed nanrows
-
-chromrows = find(sum(allroundedclrs(p,:),2) ~= 3*allroundedclrs(p,1));
-
-
-
-figure('Name','histograms of rgb channels across chromatic matches','Color',[1 1 1]);
-subplot(3,1,1);
-[r bins] =hist(allroundedclrs(chromrows,1),roundvec);
-bar(bins, r/sum(r), 'barwidth',1);
-box off;
-xlabel('red');
-ylabel('% of matches');
-subplot(3,1,2);
-[g, bins]=hist(allroundedclrs(chromrows,2),roundvec);
-bar(bins, g/sum(g), 'barwidth',1);
-box off;
-xlabel('green');
-ylabel('% of matches');
-subplot(3,1,3);
-[b, bins] = hist(allroundedclrs(chromrows,3),roundvec);
-bar(bins, b/sum(b), 'barwidth',1);
-box off;
-xlabel('blue');
-ylabel('% of matches');
-
+% 
+% chromrows = find(sum(allroundedclrs(p,:),2) ~= 3*allroundedclrs(p,1));
+% 
+% 
+% 
+% figure('Name','histograms of rgb channels across chromatic matches','Color',[1 1 1]);
+% subplot(3,1,1);
+% [r bins] =hist(allroundedclrs(chromrows,1),roundvec);
+% bar(bins, r/sum(r), 'barwidth',1);
+% box off;
+% xlabel('red');
+% ylabel('% of matches');
+% subplot(3,1,2);
+% [g, bins]=hist(allroundedclrs(chromrows,2),roundvec);
+% bar(bins, g/sum(g), 'barwidth',1);
+% box off;
+% xlabel('green');
+% ylabel('% of matches');
+% subplot(3,1,3);
+% [b, bins] = hist(allroundedclrs(chromrows,3),roundvec);
+% bar(bins, b/sum(b), 'barwidth',1);
+% box off;
+% xlabel('blue');
+% ylabel('% of matches');
+% 

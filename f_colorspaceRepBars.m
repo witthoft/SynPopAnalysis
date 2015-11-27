@@ -90,12 +90,17 @@ end
 %     so for each letter
 
 figure('name',['distribution across rgb space for ' dataname ' all letters'],'Color',[1 1 1]);
+  
+    plot(0.5:length(roundvec)^3+.5,1,'k-');
+    hold on;
     hBar=bar(1:(length(roundvec))^3,allletterhists(sortindex)/expectedmatches,'hist');
     box off
 %     set(gca,'XTickLabel',names,'XLim',[-0.5,10.5],'YLim',[0,.5]);
     ylabel('ratio of matches to uniform');
     set(hBar,'FaceVertexCData',bplotmatrix(sortindex,1:3));
-   
+    hold on;
+    set(gca,'XLim',[0.5 length(roundvec)^3+.5]);
+ 
 
     
     
