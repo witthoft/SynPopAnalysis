@@ -140,6 +140,10 @@ nummatches.uniform = sum(matches, 2);
 
 %% plot histograms
 
+% this is bad.  need to make these functions and not so dependent on what
+% is happening in all these scripts
+clear s;
+
 % matches to real magnet set, eagleman v shuffled
 
 m = hist(nummatches.eagle, 0:26);

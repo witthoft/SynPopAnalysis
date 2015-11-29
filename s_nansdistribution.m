@@ -149,3 +149,16 @@ saveas(gcf,[nansavdir '/distofnonmatchesAcrossLetters.png'],'png');
 close(gcf);
 
 
+
+
+
+% hmmmm is number of nans predicted by the letter frequency?
+
+
+[nancor nanp] = corr(log(lewandfq),pctnansbyletter','rows','pairwise','type','spearman');
+figure;
+
+plot(log(lewandfq),pctnansbyletter','ro');
+hold on;
+text(log(lewandfq),pctnansbyletter',letters);
+

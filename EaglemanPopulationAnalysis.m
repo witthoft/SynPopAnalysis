@@ -327,7 +327,7 @@ syntype(find(sum(magmatches,2)>=magnetthreshold))=2;
 % how overrepresented is each point in rgb
 
 % need to create equally spaced bins in rgb.  
-nbins = 5;
+nbins = 20;
 % create the bins.  add 2 to get edges
 roundbins = linspace(0,1,nbins+2);
 % now find the bin centers.  these will be half the bin size subtracted
