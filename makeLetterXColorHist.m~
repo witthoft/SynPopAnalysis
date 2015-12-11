@@ -48,7 +48,7 @@ for i = 1:26
     ylabel('% of subs');
 %     set(gca,'XLim',[0 11],'XTick',bins,'XTickLabel',names,...
 %         'YLim',[0 .8],'YTick',[0:.2:.6],'FontSize',6,'FontWeight','bold');
-    set(gca,'XLim',[0 11],'XTick',[],'YLim',[0 .6],'YTick',[0:.2:.6],'FontSize',6,'FontWeight','bold');
+    set(gca,'XLim',[0 11],'XTick','off','YLim',[0 .6],'YTick',[0:.2:.6],'FontSize',6,'FontWeight','bold');
     
     set(hBar,'FaceVertexCData',histcolors);
     title(letters(i),'FontSize',15,'FontWeight','bold');
