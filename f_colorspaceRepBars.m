@@ -90,9 +90,10 @@ end
 %     so for each letter
 
 figure('name',['distribution across rgb space for ' dataname ' all letters'],'Color',[1 1 1]);
-  
-    plot(0.5:length(roundvec)^3+.5,1,'k-');
-    hold on;
+%   trick for having bars and lines in the same plot is to have two axes
+%   but this yyaxis command is only in matlab 2016a
+%     yyaxis 'left
+
     hBar=bar(1:(length(roundvec))^3,allletterhists(sortindex)/expectedmatches,'hist');
     box off
 %     set(gca,'XTickLabel',names,'XLim',[-0.5,10.5],'YLim',[0,.5]);
@@ -100,9 +101,15 @@ figure('name',['distribution across rgb space for ' dataname ' all letters'],'Co
     set(hBar,'FaceVertexCData',bplotmatrix(sortindex,1:3));
     hold on;
     set(gca,'XLim',[0.5 length(roundvec)^3+.5]);
- 
 
-    
+ %     this should add a dashed line at 1 meaning chosen proportionally to
+% %     area of space (or area, diam, or whatever is 1).  turns out to be a
+% big pain in the ass to have a line on a plot
+%     plot(0:.5:length(roundvec)^3,1,'k-','LineWidth',5);
+%     hold on;
+%     box off;
+
+
     
 %     le
 

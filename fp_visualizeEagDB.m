@@ -3,6 +3,18 @@
 % script which loads and then visualizes the eagleman database of
 % grapheme-color synesthetes
 
+
+
+% place to save figures
+datavisdir = 'databasevisualizations';
+
+% if dir doesn't exist, make it
+if ~exist(datavisdir,'dir')
+   mkdir(datavisdir); 
+end
+
+
+
 % load data
 % this seems like it is happening twice
 load Engl_Alpha_5.mat;
@@ -48,7 +60,6 @@ randp_rgb=p_rgb;
 randp_rgb(indx) =randcolors;
 
 
-% now we can look at the whole data set
 
 % now we can look at the whole data set
 figure('name', 'all matches in eagleman database', 'Color', [1 1 1],'Position',get(0,'ScreenSize'));
@@ -68,7 +79,10 @@ set(gca,'XTick',[1:26],'XTickLabel',labels, 'TickDir','out', 'YDir','normal');
 box off;
 title('nans are a random color');
 
+saveas(gcf,[datavisdir '/AllMatchesAllSubs.png'],'png');
+plot2svg([datavisdir '/AllMatchesAllsubs.svg'],gcf);
 
+close(gcf);
 
 
 % can see some cool stuff already.  for example there are numerous letters
@@ -145,6 +159,11 @@ title('nans are a random color');
 % get distribution of color choices for each letter
 makeLetterXColorHist(dbNumbered);
 
+
+saveas(gcf,[datavisdir '/LetterxColorHistsAllSubs.png'],'png');
+plot2svg([datavisdir '/LetterxColorHistsAllSubs.svg'],gcf);
+
+close(gcf);
 
 %
 % fsize=get(gcf,'Position');

@@ -298,19 +298,48 @@ for i=1:26
 end
 
 
+% I think the answer here as with many questions is to use mutual
+% information as a way to measure the dependence between pairs of
+% distributions
 % now we can unpack the matrices and do a straight correlation.  could plot
 % letters with every letter colored.
 
 richfqvect = richfq(:)';
 eaglefqvect = eaglefq(:)';
+dayfqvect = day_matches(:)';
 % should do the same with letter matrix if we want it
 
-figure('Name','Eagleman vs Rich Letter-Color Matching frequencies','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+% compare all three  
+
+figure('Name','Eagleman vs Rich vs Day Letter-Color Matching frequencies','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+
+% eagle vs rich
+subplot(1,3,1);
+
 scatter(richfqvect,eaglefqvect,'r.');
 
+xlabel('rich');ylabel('eagleman');
+[errho, erp] = corr(richfqvect', eaglefqvect')
+
+% eagle vs day
+subplot(1,3,2);
+
+scatter(dayfqvect,eaglefqvect,'r.');
+
+xlabel('day');ylabel('eagleman');
+[edrho, edp] = corr(richfqvect', eaglefqvect')
+
+% eagle vs rich
+subplot(1,3,3);
+
+scatter(richfqvect,dayfqvect,'r.');
+
+xlabel('rich');ylabel('day');
+[drrho, drp] = corr(richfqvect', eaglefqvect')
 
 
-[rho, p] = corr(richfqvect', eaglefqvect')
+
+
 
 
 

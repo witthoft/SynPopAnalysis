@@ -73,6 +73,9 @@ set(gca,'XTick',[1:26],'XTickLabel',letters, 'TickDir','out', 'YDir','normal');
 box off;
 title('Shuffled by Column');
 
+saveas(gcf,'databasevisualizations/AllMatchesRowShuffColShuffle.png','png');
+plot2svg('databasevisualizations/AllMatchesRowShuffColShuffle.svg',gcf);
+
 % 
 % % can see some cool stuff already.  for example there are numerous letters
 % % which seem to be strongly associated with colors overall.

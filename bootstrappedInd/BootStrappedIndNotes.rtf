@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Percentile of observed correlation in distribution of nulls\
+\
+what the hell are these plots?\
+\
+\
+the question we are trying to answer, is whether or not distances between letters defined in various ways can predict the differences between colormatches at the individual level.\
+\
+previous papers have increased their power by doing two things.  first they average across subjects, making the analysis fixed effect.  nothing wrong with this, that is just what it is.  second they average across letter pairs with similar distances, that is they take the average color distance in bins on the predictor variable.  as other analyses show, this can turn small positive correlations into big ones. again whether or not this is an error depends on how you talk about what you are predicting.  \
+\
+if you wanted to do a regression analysis which showed how well you could predict color matching while accounting for subject variability, you could do a full on regression or bootstrappe correlation.   but this reveals yet another difficulty, namely that the pairwise distances going into your correlation aren\'92t independent of one another.  there are 325 distances (I think) and each letter participates in 25 of them.\
+\
+ for exaple, the measures\
+% AB, AC, ... AZ all measure distances from A.  if A is far from everything\
+% else, than these will tend to be large.  Karen and Waskom said people are aware of\
+% this problem when doing RSM analyses generally (namely that your null\
+% hypothesis might not really be 0).  They use the following method,\
+% compute the correlation for each subject.  The correlation can be bootstrapped across\
+% subjects (so random fx if you need).\
+\
+% for each subject you can also compute a null distribution using a\
+% permutation approach.  this is done by shuffling the rows and columns of\
+% the matrix while retaining their connection to one another.  so for\
+% example  rowA columnA   could go to rowB columnB.  this mixes up the\
+% distances while maintaining the dependences that arise from having one\
+% endpoint in the distance across 25 comparisons\
+\
+\
+so what I did here was each subject has a correlation between the color distance and some predictor distance.   I then permuted the data as above to generate a null distribution of correlations given the data for that subject.  I then write down what percentile of the data the observed correlation was in and then plot that as a histogram across all subjects.   \
+\
+this is a weird kind of thing to do but you have to negotiate the lack of independence in the data samples.  \
+\
+one question is how should this distribution look if your data are totall random?}

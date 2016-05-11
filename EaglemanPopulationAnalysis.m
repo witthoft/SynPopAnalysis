@@ -101,6 +101,7 @@ s_nansdistribution
 % and % color category for each letter
 fp_visualizeEagDB
 
+
 % get LAB
 p_Lab = RGB2Lab(p_rgb);
 
@@ -164,6 +165,7 @@ end
 s_fpRichAndEaglemanMatches
 
 
+
 % what proportion of all matches have each label
 
 alllabels = reshape(labels.eagleman,...
@@ -206,6 +208,8 @@ ylabel('% of responses');
 set(hBar,'FaceVertexCData',histcolors(1:end-1,:));
 
 
+
+
 % why not just as scatterplot
 figure('Name','% of RGB space vs. % of responses','Color',[1 1 1]);
 % the scatterplot function sucks for coloring so use loop as it is short
@@ -228,6 +232,8 @@ xlabel('% of RGB space');
 ylabel('% of responses');
 
 
+saveas(gcf,'databasevisualizations/CatResponsesXCatSize.png','png');
+plot2svg('databasevisualizations/CatResponsesXCatSize.svg',gcf);
 
 
 % could work out how overrepresented each point in our binned space is
@@ -324,54 +330,128 @@ syntype(find(sum(magmatches,2)>=magnetthreshold))=2;
 
 
 
+% some bubbleplots showing the way matches are distributed in RGB
+
+% check to see if figure directory exists.  if not, make it
+
+if ~exist('bubbleplotfigs','dir')
+    mkdir('bubbleplotfigs');
+end
+
 % how overrepresented is each point in rgb
 
-% need to create equally spaced bins in rgb.  
-nbins = 20;
-% create the bins.  add 2 to get edges
-roundbins = linspace(0,1,nbins+2);
-% now find the bin centers.  these will be half the bin size subtracted
-% from each bin that is not an edge
-roundvec = roundbins(2:end)-roundbins(2)/2;
-
-
-
-
-% visualize matching distributions for just the magnet synesthetes (same as
-% code for fp_visualizeEagDatabase so should be a function
-% make bubble plot for everything
-
-
-
-% pull out magnet subset
-magnetmatches = p_rgb(find(syntype==2),:,:);
-scalefactor = 4;
-% make bubbleplots
-f_colorspacebubbleplot(magnetmatches,roundvec,'magnetsyns',scalefactor);
-% pull out only nonmagnetsynesthes
-nonmagnetmatches = p_rgb(find(syntype~=2),:,:);
-f_colorspacebubbleplot(nonmagnetmatches,roundvec,'not magnetsyns',scalefactor);
-
-
-% do it as bars.  probably want to downsample to make things more visible
 % need to create equally spaced bins in rgb.  
 nbins = 3;
 % create the bins.  add 2 to get edges
 roundbins = linspace(0,1,nbins+2);
 % now find the bin centers.  these will be half the bin size subtracted
 % from each bin that is not an edge
+roundvec = roundbins(2:end)-roundbins(2)/2;
+
+% visualize matching distributions for just the magnet synesthetes (same as
+% code for fp_visualizeEagDatabase so should be a function
+% make bubble plot for everything
+
+% do we want the count to set the radius, the area or the diameter
+% of the plots?
+circparam = 'area';
+
+% overal scaling of bubbles
+scalefactor = 4;
+
+
+% for figure naming
+bparams = ['bins' num2str(nbins) '_' circparam '_scale' num2str(scalefactor)];
+
+
+% pull out magnet subset
+magnetmatches = p_rgb(find(syntype==2),:,:);
+
+% make bubbleplots
+f_colorspacebubbleplot(magnetmatches,roundvec,'magnetsyns',scalefactor, circparam);
+% save
+saveas(gcf,['bubbleplotfigs/' bparams '.magnetsyns.png'],'png');
+% plot2svg gets the order (top to bottom layers) of the bubbles backwords
+% but should be easy to fix in inksccape
+plot2svg(['bubbleplotfigs/' bparams '.magnetsyns.svg']);
+
+
+% pull out only nonmagnetsynesthes
+nonmagnetmatches = p_rgb(find(syntype~=2),:,:);
+f_colorspacebubbleplot(nonmagnetmatches,roundvec,'not magnetsyns',scalefactor, circparam);
+saveas(gcf,['bubbleplotfigs/' bparams '.notmagnetsyns.png'],'png');
+plot2svg(['bubbleplotfigs/' bparams '.notmagnetsyns.svg']);
+
+
+
+% 
+% % could you do this by letter?
+% % p_rgb is subsxlettersxrgb
+% 
+% % let's change the scaling
+% scalefactor = 6;
+% 
+% for l=1:26
+% f_colorspacebubbleplot(magnetmatches(:,l,:),roundvec,[letters(l) ' magnetsyns'],scalefactor, circparam/5);
+% end
+% 
+% for l=1:26
+% f_colorspacebubbleplot(nonmagnetmatches(:,l,:),roundvec,[letters(l) ' nonmagnetsyns'],scalefactor, circparam/5);
+% end
+
+
+
+% do it as bars.  probably want to downsample to make things more visible
+
+% check to see if figure directory exists.  if not, make it
+
+if ~exist('proportionmatchesinRGBbars','dir')
+    mkdir('proportionmatchesinRGBbars');
+end
+
+
+
+
+
+% need to create equally spaced bins in rgb.  
+nbins = 4;
+% create the bins.  add 2 to get edges
+roundbins = linspace(0,1,nbins+2);
+% now find the bin centers.  these will be half the bin size subtracted
+% from each bin that is not an edge
 lowresroundvec = roundbins(2:end)-roundbins(2)/2;
 
+% for figure naming
+bparams = ['bins' num2str(nbins)];
+
+
+
+
+% not magnets
 f_colorspaceRepBars(nonmagnetmatches,lowresroundvec,'not magnetsyns')
+saveas(gcf,['proportionmatchesinRGBbars/' bparams '.notmagnetsyns.png'],'png');
+plot2svg(['proportionmatchesinRGBbars/' bparams '.notmagnetsyns.svg']);
+
+
+% magnets
 f_colorspaceRepBars(magnetmatches,lowresroundvec,'magnetsyns')
+saveas(gcf,['proportionmatchesinRGBbars/' bparams '.magnetsyns.png'],'png');
+plot2svg(['proportionmatchesinRGBbars/' bparams '.magnetsyns.svg']);
 
+% allsubs
 f_colorspaceRepBars(p_rgb,lowresroundvec,'allmatches')
+saveas(gcf,['proportionmatchesinRGBbars/' bparams '.allsyns.png'],'png');
+plot2svg(['proportionmatchesinRGBbars/' bparams '.allmagnetsyns.svg']);
 
 
+
+
+
+% REGRESSION ANALYSES
 
 
 % %
-% need to create a distance matrix for each subject
+% first we need to create a distance matrix for each subject
 % will use euclidian to start with
 % can do this for each subject using pdist
 
@@ -418,6 +498,15 @@ for i=1:length(p_Lab)
 end
 
 % visualize average distance matrix
+
+
+
+
+% so is there anything interesting about the distribution of distances?
+% one question is whether or not the distribution is different from what
+% you would observe if the points in the color space were chosen randomly
+
+
 
 % meanrgbdist = nanmean(rgb_dists,2);
 % try median
@@ -468,11 +557,14 @@ title('random');
 % random values on unit interval
 randrgb = rand(size(p_rgb));
 
-scalefactor = 25;
+scalefactor = 6;
 
-f_colorspacebubbleplot(randrgb,roundvec,'all data',scalefactor);
+f_colorspacebubbleplot(randrgb,roundvec,'all data',scalefactor, circparam);
 
-% 
+% random data is indeed random
+
+
+% (what does this refer to?)
 % this won't work because Lab gamut is larger than RGB
 % % rnadom values on unit interval
 % randLab = rand(size(p_Lab));
@@ -507,33 +599,33 @@ f_colorspacebubbleplot(randrgb,roundvec,'all data',scalefactor);
 % title('random');
 
 
-
-%
-% %  let's get histogram of distances for every possible letter pair
-%
-if ~exist('pairwisedists','dir')
-    mkdir('pairwisedists');
-end
-
-for i=1:325
-    
-    
-    figure('Name',['histogram of L*a*b* distances for ' char(letterpairs{i})],'Color',[1 1 1]);
-    
-    hist(lab_dists(i,:));
-    xlabel('euclidian distance in L*a*b*');
-    ylabel('num of subjects');
-    box off;
-    
-    %  save the figure
-    
-    saveas(gcf,['pairwisedists/' char(letterpairs{i}) '_hist.png'],'png');
-    
-    
-    % close
-    close(gcf);
-    
-end
+% 
+% %
+% % %  let's get histogram of distances for every possible letter pair
+% %
+% if ~exist('pairwisedists','dir')
+%     mkdir('pairwisedists');
+% end
+% 
+% for i=1:325
+%     
+%     
+%     figure('Name',['histogram of L*a*b* distances for ' char(letterpairs{i})],'Color',[1 1 1]);
+%     
+%     hist(lab_dists(i,:));
+%     xlabel('euclidian distance in L*a*b*');
+%     ylabel('num of subjects');
+%     box off;
+%     
+%     %  save the figure
+%     
+%     saveas(gcf,['pairwisedists/' char(letterpairs{i}) '_hist.png'],'png');
+%     
+%     
+%     % close
+% %     close(gcf);
+%     
+% end
 
 
 
@@ -983,6 +1075,12 @@ for i=1:(size(simmeasures,2)-1)
     %   compare to matlab output
     [s_rho, pval] = corr(simmeasures(:,i),simmeasures(:,end),'type','Spearman');
     
+%     let's get a nonparametric rank correlation (tau)
+        [s_tau, kpval] = corr(simmeasures(:,i),simmeasures(:,end),'type','Kendall');
+
+    
+    
+    
     figure('Name',columnheaders{i},'Color',[1 1 1]);
     plot(simmeasures(:,i),yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
     hold on;
@@ -992,12 +1090,13 @@ for i=1:(size(simmeasures,2)-1)
     box off;
     text(simmeasures(:,i),simmeasures(:,end),letterpairs');
     hold on;
-    title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
-        'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
+    title({[num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
+        'rho = ' num2str(s_rho) ' p = ' num2str(pval)],[ ' tau = ' ...
+        num2str(s_tau) ' p = ' num2str(kpval)]});
     
     saveas(gcf,['correlationsAveAcrossSubs/' columnheaders{i} '.png'],'png');
     %      close gcf;
-    
+    plot2svg(['correlationsAveAcrossSubs/' columnheaders{i} '.svg']);
 end
 
 
@@ -1115,7 +1214,7 @@ sortedletterpairs = letterpairs(sortedindx);
 % assumption is that all the samples are independent, but since they are
 % all pairwise distances, that is not really true. for exaple, the measures
 % AB, AC, ... AZ all measure distances from A.  if A is far from everything
-% else, than these will tend to be large.  Waskom said people are aware of
+% else, than these will tend to be large.  Karen and Waskom said people are aware of
 % this problem when doing RSM analyses generally (namely that your null
 % hypothesis might not really be 0).  They use the following method,
 % compute the correlation for each subject.  The correlation can be bootstrapped across
@@ -1289,6 +1388,11 @@ for i=1:(size(simmeasures,2)-1)
     text(median(prho{i}),max(hist(prho{i},xbounds(1):.01:xbounds(2)))+20,num2str(median(prho{i})));
     
     
+    saveas(gcf,['avesubjrhos/' columnheaders{i} '.png'],'png');
+    %      close gcf;
+    plot2svg(['avesubjrhos/' columnheaders{i} '.svg']);
+    
+    close gcf;
     
 end
 
@@ -1436,86 +1540,96 @@ end
 
 
 
-
+% 
 % this still isn't right as the correlations are still calculated as though
 % all the points are independent and compared to a null which is
 % distributed around 0. one way to approach this is to summarize each
 % subject against its own permuted null.
-
+% 
 % 1.  for each subject we have a rho
 % 2.  for each subject permute data and calculate rho many times
 % 3.  percentile of data rho within permuted rho distribution
 
 
-% % distancemeasure = 13; %pick a column to do
-%
-% numpermutes = 100;
-%
-% permute_rhos = zeros(numpermutes,1); %for each subjects null
-%
-% pctlarger = nan(length(lab_dists),1); %percent of shuffles larger than observed for each subject
-%
-% if ~exist('bootstrappedInd','dir')
-%     mkdir('bootstrappedInd');
-% end
-%
-% for distancemeasure=1:(length(columnheaders)-1)
-%     distancemeasure
-% % for each subject
-% for s=1:length(lab_dists)
-% %     s
-% %
-%
-% %     there must be a faster way
-% % 1. make distance vector for a subject into full matrix
-%     labsquare = squareform(lab_dists(:,s));
-%
-% %     do permutations
-%     for p= 1:numpermutes
-% % 2. get permutationindex
-%     [pletters pindex] = shuffle(1:26);
-% % 3. permute cols
-%     plabsquare = labsquare(:,pletters);
-% % 4. permute rows
-%     plabsquare =plabsquare(pletters,:);
-% % 5. unpack upper diagonal
-%   can fix this.  turns out that if y is a vector, then x=squareform(y)
-%   turns that vector in a symmetrical distance matrix.  however
-%   squareform(x) = y meaning it unpacks the upper triangular part
-% % this cheat won't work if some distances are actually zero
-%     tplabsquare = plabsquare';
-%     permdist = tplabsquare(tril(true(size(plabsquare)),-1));
-%
-%
-%
-% % 6.compute a correlation
-%     permute_rhos(p) = corr(simmeasures(:,distancemeasure),permdist, ...
-%         'type','Spearman','rows','pairwise');
-%     end
-%
-% % 7.  get actual correlation
-%     rho = corr(simmeasures(:,distancemeasure),lab_dists(:,s), ...
-%         'type','Spearman','rows','pairwise');
-% % 8. get percent of correlations in permute larger than observed
-%     pctlarger(s) = length(find(permute_rhos>=rho))/numpermutes;
-%
-%
-%
-% end
-%
-%
-%
-% % make a figure
-% figure('Name',columnheaders{distancemeasure} , 'Color', [1 1 1])
-% hist(pctlarger,0:.05:1);
-% box off;
-% ylabel('count of subjects');
-% xlabel('percentile of observed subject correlation in distribution of nulls');
-%
-% saveas(gcf,['bootstrappedInd/' columnheaders{distancemeasure}, '.png'],'png');
-% close gcf;
-% end
-%
+% distancemeasure = 13; %pick a column to do
+
+numpermutes = 100;
+
+permute_rhos = zeros(numpermutes,1); %for each subjects null
+
+pctlarger = nan(length(lab_dists),1); %percent of shuffles larger than observed for each subject
+
+if ~exist('bootstrappedInd','dir')
+    mkdir('bootstrappedInd');
+end
+
+ lab_dists = rand(ize(lab_dists));
+
+
+for distancemeasure=1:(length(columnheaders)-1)
+    distancemeasure
+    % for each subject
+    
+    % to see what these distributions look like with random data I am going to
+    % make a uniform random sample of lab_dists which is probably wrong and see
+    % what figures I get
+    
+   
+    
+    for s=1:size(lab_dists,2)
+        %     s
+        %
+        
+        %     there must be a faster way
+        % 1. make distance vector for a subject into full matrix
+        labsquare = squareform(lab_dists(:,s));
+        
+        %     do permutations
+        for p= 1:numpermutes
+            % 2. get permutationindex
+            [pletters pindex] = shuffle(1:26);
+            % 3. permute cols
+            plabsquare = labsquare(:,pletters);
+            % 4. permute rows
+            plabsquare =plabsquare(pletters,:);
+            % 5. unpack upper diagonal
+            %   can fix this.  turns out that if y is a vector, then x=squareform(y)
+            %   turns that vector in a symmetrical distance matrix.  however
+            %   squareform(x) = y meaning it unpacks the upper triangular part
+            % this cheat won't work if some distances are actually zero
+            tplabsquare = plabsquare';
+            permdist = tplabsquare(tril(true(size(plabsquare)),-1));
+            
+            
+            
+            % 6.compute a correlation
+            permute_rhos(p) = corr(simmeasures(:,distancemeasure),permdist, ...
+                'type','Spearman','rows','pairwise');
+        end
+        
+        % 7.  get actual correlation
+        rho = corr(simmeasures(:,distancemeasure),lab_dists(:,s), ...
+            'type','Spearman','rows','pairwise');
+        % 8. get percent of correlations in permute larger than observed
+        pctlarger(s) = length(find(permute_rhos>=rho))/numpermutes;
+        
+        
+        
+    end
+    
+    
+    
+    % make a figure
+    figure('Name',columnheaders{distancemeasure} , 'Color', [1 1 1])
+    hist(pctlarger,0:.05:1);
+    box off;
+    ylabel('count of subjects');
+    xlabel('percentile of observed subject correlation in distribution of nulls');
+    
+    saveas(gcf,['bootstrappedInd/uniformrand.' columnheaders{distancemeasure}, '.png'],'png');
+    close gcf;
+end
+
 
 
 

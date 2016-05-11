@@ -53,7 +53,7 @@ end
 
 % number of histogram of subjects with n NaNs
 
-figure('Name','histogram of subjects with n letters with no color','Color',[1 1 1]);
+figure('Name','histogram of subjects with n letters with no color','Color',[1 1 1],'Position',get(0,'ScreenSize'));
 hist(numnans,[0:26]);
 xlabel('number of letters with no match');
 % so many are 0 that we need a log scale on y
@@ -62,6 +62,8 @@ ylabel('number of subjects');
 box off;
 set(gca,'XLim',[-.5 26]);
 saveas(gcf,[nansavdir '/histofnomatchesAllsubs.png'],'png');
+plot2svg([nansavdir '/histofnomatchesAllsubs.svg'],gcf);
+
 close(gcf);
 
 
@@ -102,7 +104,7 @@ pctnans = h/sum(h);
 
 
 
-figure('Name','percent of subjects with n letters with no color','Color',[1 1 1]);
+figure('Name','percent of subjects with n letters with no color','Color',[1 1 1],'Position',get(0,'ScreenSize'));
 bar(pctnans);
 
 xlabel('number of letters with no match');
@@ -111,14 +113,15 @@ box off;
 set(gca,'XLim',[0 26]);
 
 saveas(gcf,[nansavdir '/normhistofnomatchesAllsubs.png'],'png');
-close(gcf);
+plot2svg([nansavdir '/normhistofnomatchesAllsubs.svg'],gcf);
+% close(gcf);
 
 
 
 
 
 % how is this behavior distributed across letters?
-figure('Name','distribution of nans across letters','Color',[1 1 1]);
+figure('Name','distribution of nans across letters','Color',[1 1 1],'Position',get(0,'ScreenSize'));
 
 subplot(1,2,1);
 % figure where nans are black and color matches are white
@@ -146,7 +149,8 @@ ylabel('number of times not matched');
 set(gca,'XTick',[1:26],'XTickLabel',letters);
 % set(gca,'XTickLabel',letters);
 saveas(gcf,[nansavdir '/distofnonmatchesAcrossLetters.png'],'png');
-close(gcf);
+plot2svg([nansavdir '/distofnonmatchesAcrossLetters.svg'],gcf);
+% close(gcf);
 
 
 % 

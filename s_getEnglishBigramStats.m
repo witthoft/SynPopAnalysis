@@ -18,7 +18,7 @@
 % my guess is that above some number the frequencies don't change that much
 
 % let's start with 10,0000
-nwords = 50000;
+nwords = 5000;
 
 
 % load the data
@@ -28,6 +28,13 @@ fname = 'WORDCOUNTSFORENGLISH.csv';
 fid = fopen(fname);
 
 wordcounts = textscan(fid,'%s%s','Delimiter', ',');
+
+% wordcounts = 
+
+%     {97565x1 cell}    {97565x1 cell}
+%   first cell is words  second is raw count of occurences
+
+
 
 fclose(fid);
 
@@ -60,23 +67,37 @@ for i=1:26
         letpair = strcat(letters(i), letters(j));
         fprintf('current bigram: %s\n',char(letpair));
         % %         count up the bigrams of up to n words
-        
-        bigramcount=strmatch(char(letpair),wordcounts{1}(1:nwords));
-%         
-%         have to multiply instances by count of the word
+%         strmatch only finds strings that begin with the string
+%         bigramcount=strfind(char(letpair),wordcounts{1}(1:nwords));
+%         this works better but returns a cell
+        bigramcount=strfind(wordcounts{1}(1:nwords),char(letpair));
+
+%         %       the indices are given by 
+%         find(cellfun(@sum,bigramcount))
+
+%         you can get the list of words with the letterpair by
+%         wordcounts{1}(find(cellfun(@sum,bigramcount)))
+
+%         you can get the frequencies of the words with that letterpair by
+        rawcounts(find(cellfun(@sum,bigramcount)));
+    
+%       there is an error to fix which is what happens when there are
+%       mulitple instances of a pair within a word (like haha or
+%       repetetive or teeter)
+
         
 
 
-        %             then sum all found instances
+        %but we want to sum across all the occurences
         
-        bigramcountmatrix(i,j) = sum(cellfun(@sum,bigramcount));
+        bigramcountmatrix(i,j) = sum(rawcounts(find(cellfun(@sum,bigramcount))));
  
     end
 
 end
 
 
-% visualize matrix
+% visualize raw frequency matrix
 figure('Name',['bigram counts for top ' num2str(nwords) 'English Words'],...
     'Color', [1 1 1],'Position',get(0,'ScreenSize'));
 
@@ -85,5 +106,67 @@ colorbar;
 set(gca,'XTick',[1:26],'XTickLabel',letters,'YTick',[1:26],'YTickLabel',letters);
 
 
+% now this doesn't tell us very much at least as a predictor.  for example
+% if you want to use the fact that q is almost always followed by u as a
+% measure, then you want to see the probability given q or each other
+% letter.   so this just means normalizing the rows
 
+% stupid way to do this
+% for each row, divide it by its sum
+for i=1:size(bigramcountmatrix,1)
+    bigramcondprobmatrix(i,:)=bigramcountmatrix(i,:)/sum(bigramcountmatrix(i,:));
+end
+
+
+
+% visualize conditional probability  matrix
+figure('Name',['conditional prob for top ' num2str(nwords) 'English Words'],...
+    'Color', [1 1 1],'Position',get(0,'ScreenSize'));
+
+imagesc(100*bigramcondprobmatrix);
+h=colorbar;
+caxis([0 10]);
+set(gca,'XTick',[1:26],'XTickLabel',letters,'YTick',[1:26],'YTickLabel',letters);
+
+
+
+
+
+% do probability preceded by
+% stupid way to do this
+% for each col, divide it by its sum
+for i=1:size(bigramcountmatrix,1)
+    bigramrevcondprobmatrix(:,i)=bigramcountmatrix(:,i)/sum(bigramcountmatrix(:,i));
+end
+
+
+% visualize conditional probability  matrix
+figure('Name',['rev conditional prob for top ' num2str(nwords) 'English Words'],...
+    'Color', [1 1 1],'Position',get(0,'ScreenSize'));
+
+imagesc(100*bigramrevcondprobmatrix);
+h=colorbar;
+caxis([0 10]);
+set(gca,'XTick',[1:26],'XTickLabel',letters,'YTick',[1:26],'YTickLabel',letters);
+
+
+
+
+
+
+
+% you could go one step deeper and ask which letters are similar in terms
+% of the letters they proceed
+figure;
+plotmatrix(bigramcondprobmatrix');
+
+bigramcontextsim = corr(bigramcondprobmatrix','rows','pairwise');
+
+figure('Name',['similar contexts for brigram cond prob ' num2str(nwords) 'English Words'],...
+    'Color', [1 1 1],'Position',get(0,'ScreenSize'));
+
+imagesc(bigramcontextsim);
+h=colorbar;
+% caxis([0 10]);
+set(gca,'XTick',[1:26],'XTickLabel',letters,'YTick',[1:26],'YTickLabel',letters);
 
