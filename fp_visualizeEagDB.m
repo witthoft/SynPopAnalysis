@@ -85,6 +85,43 @@ plot2svg([datavisdir '/AllMatchesAllsubs.svg'],gcf);
 close(gcf);
 
 
+
+% let's sort the letters by frequency to compare to the cognition paper
+% under review from Herman et al.
+
+% lewand frequency
+% 5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26
+% e t   a o   i n  s   h r   d l  c u   m  w  f g y p   b v    k  j  x  q  z
+fqorder = [5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26];
+
+
+% now we can look at the whole data set
+figure('name', 'all matches in eagleman database sorted by frequency', 'Color', [1 1 1],'Position',get(0,'ScreenSize'));
+subplot(1,2,1);
+imagesc(p_rgb(:,fqorder,:));
+ylabel('SUBJECTS');
+xlabel('LETTERS');
+set(gca,'XTick',[1:26],'XTickLabel',labels(fqorder), 'TickDir','out', 'YDir','normal');
+box off;
+title('fq in english');
+
+% fq of first letter in a word
+
+% 20 1 19 8 23 9 15 2 13 6 3 12 4 16 14 5 7 18 25 21 22 10 11 24 26 24
+% t  a s  h w  i o  b m  f c l  d p  n  e g r  y  u  v  j  k  q  z  x
+
+fqfrst = [20 1 19 8 23 9 15 2 13 6 3 12 4 16 14 5 7 18 25 21 22 10 11 24 26 24];
+
+subplot(1,2,2);
+imagesc(p_rgb(:,fqfrst,:));
+ylabel('SUBJECTS');
+xlabel('LETTERS');
+set(gca,'XTick',[1:26],'XTickLabel',labels(fqfrst), 'TickDir','out', 'YDir','normal');
+box off;
+title('fq as first letter in a word in english');
+
+
+
 % can see some cool stuff already.  for example there are numerous letters
 % which seem to be strongly associated with colors overall.
 %  A : RED

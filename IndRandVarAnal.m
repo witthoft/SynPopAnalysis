@@ -50,9 +50,9 @@ syntype(find(sum(magmatches,2)>=magnetthreshold))=2;
 
 
 % just the magnet synesthetes (more than 10 matches)
-% whichlabels = labels.eagleman(find(syntype==2),:);
-% savedir = 'indRandVarPlots/magnetsyns/';
-% saveprefix = 'magnetsyns.';
+whichlabels = labels.eagleman(find(syntype==2),:);
+savedir = 'indRandVarPlots/magnetsyns/';
+saveprefix = 'magnetsyns.';
 
 
 
@@ -61,11 +61,11 @@ syntype(find(sum(magmatches,2)>=magnetthreshold))=2;
 
 
 
-
-% all but the magnet synesthetes
-whichlabels = labels.eagleman(find(syntype~=2),:);
-savedir = 'indRandVarPlots/allbutmagnets/';
-saveprefix = 'notmagnetsyns.';
+% 
+% % all but the magnet synesthetes
+% whichlabels = labels.eagleman(find(syntype~=2),:);
+% savedir = 'indRandVarPlots/allbutmagnets/';
+% saveprefix = 'notmagnetsyns.';
 
 
 
@@ -93,38 +93,39 @@ colornames = {...
     'none'
     };
 %
-% % for each letter
-% for lA=1:26
-% %     make a variable to store the probability distributions
-%     BcA =zeros(12);
-%     %     pick another letter (only need upper triangle
-%     for lB=1:26
-%         %     for each color category
-%         for cA=1:12
-%             %     get a histogram of the values of lB
-%             %     get index to entries where letter A has color a
-%             lAcA = find(whichlabels(:,lA)==cA-1);
-%             %          then get all of the values of B for those subjects
-%             BcA(cA,:) = hist(whichlabels(lAcA,lB),0:11);
-% %             turn this into a probability distribution?
-%             BcA(cA,:) = BcA(cA,:)/sum(BcA(cA,:));
-%         end
-% %         make a figure with the histogram comparing the letters
-%         figure('Name',['joint distribution of ' letters(lA) 'and ' letters(lB)],...
-%             'Color',[1 1 1]);
-%         imagesc(BcA);
-%         box off;
-%         set(gca,'XTick',1:12,'XTickLabel',colornames,'YTick',1:12,'YTickLabel',colornames);
-%         xlabel(['probability ' letters(lB) ' is ']);
-%         ylabel(['if ' letters(lA) ' is']);
-%         set(gca,'CLim',[0 .5]);
-%         colorbar;
-% %         save the figure
-%         saveas(gcf,[savedir saveprefix letters(lA) 'vs' letters(lB) '.png'],'png');
-%         close(gcf);
-%
-%     end
-% end
+% for each letter
+for lA=1:26
+%     make a variable to store the probability distributions
+    BcA =zeros(12);
+    %     pick another letter (only need upper triangle
+    for lB=1:26
+        %     for each color category
+        for cA=1:12
+            %     get a histogram of the values of lB
+            %     get index to entries where letter A has color a
+            lAcA = find(whichlabels(:,lA)==cA-1);
+            %          then get all of the values of B for those subjects
+            BcA(cA,:) = hist(whichlabels(lAcA,lB),0:11);
+%             turn this into a probability distribution?
+            BcA(cA,:) = BcA(cA,:)/sum(BcA(cA,:));
+        end
+%         make a figure with the histogram comparing the letters
+        figure('Name',['joint distribution of ' letters(lA) 'and ' letters(lB)],...
+            'Color',[1 1 1]);
+        imagesc(BcA);
+        box off;
+        set(gca,'XTick',1:12,'XTickLabel',colornames,'YTick',1:12,'YTickLabel',colornames);
+        xlabel(['probability ' letters(lB) ' is ']);
+        ylabel(['if ' letters(lA) ' is']);
+        set(gca,'CLim',[0 .5]);
+        colorbar;
+%         save the figure
+        saveas(gcf,[savedir saveprefix letters(lA) 'vs' letters(lB) '.png'],'png');
+        plot2svg([savedir saveprefix letters(lA) 'vs' letters(lB) '.svg'],gcf);
+        close(gcf);
+
+    end
+end
 
 
 
@@ -168,8 +169,10 @@ ylabel(['if ' letters(lA) ' is']);
 set(gca,'CLim',[0 .5]);
 colorbar;
 %         save the figure
-% saveas(gcf,[savedir saveprefix 'fullmatrix.jpg'],'jpg');
-% close(gcf);
+saveas(gcf,[savedir saveprefix 'fullmatrix.jpg'],'jpg');
+plot2svg([savedir saveprefix 'fullmatrix.svg'],gcf);
+
+close(gcf);
 
 % number of iterations of model fits
 modelits = 50;

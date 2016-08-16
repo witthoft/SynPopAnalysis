@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   preserveAspectRatio="xMinYMin meet"
+   width="600"
+   height="701"
+   viewBox="-768000 0 0 701"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="histofnomatchesAllsubseDITED.svg">
+  <metadata
+     id="metadata273">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs271">
+    <clipPath
+       id="ID000001">
+      <rect
+         x="166.39999"
+         y="52.575001"
+         width="992"
+         height="571.315"
+         id="rect11" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="752"
+     id="namedview269"
+     showgrid="true"
+     inkscape:zoom="0.80017506"
+     inkscape:cx="242.2666"
+     inkscape:cy="369.20201"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4894" />
+  </sodipodi:namedview>
+  <desc
+     id="desc4">Matlab Figure Converted by PLOT2SVG written by Juerg Schwizer</desc>
+  <polygon
+     points="166.4,52.575 1158.4,52.575 1158.4,52.575 166.4,52.575 "
+     id="polygon15"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,1280,0)" />
+  <polygon
+     points="166.4,52.575 166.4,52.575 166.4,623.89 166.4,623.89 "
+     id="polygon17"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="203.834,81.903 203.834,623.89 166.4,623.89 166.4,81.903 "
+     id="polygon22"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="241.268,518.387 241.268,623.89 203.834,623.89 203.834,518.387 "
+     id="polygon24"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="278.702,574.249 278.702,623.89 241.268,623.89 241.268,574.249 "
+     id="polygon26"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="316.136,591.262 316.136,623.89 278.702,623.89 278.702,591.262 "
+     id="polygon28"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="353.57,595.324 353.57,623.89 316.136,623.89 316.136,595.324 "
+     id="polygon30"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="391.004,602.18 391.004,623.89 353.57,623.89 353.57,602.18 "
+     id="polygon32"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="428.438,604.846 428.438,623.89 391.004,623.89 391.004,604.846 "
+     id="polygon34"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="465.872,608.528 465.872,623.89 428.438,623.89 428.438,608.528 "
+     id="polygon36"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="503.306,609.925 503.306,623.89 465.872,623.89 465.872,609.925 "
+     id="polygon38"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="540.74,618.05 540.74,623.89 503.306,623.89 503.306,618.05 "
+     id="polygon40"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="578.174,621.986 578.174,623.89 540.74,623.89 540.74,621.986 "
+     id="polygon42"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="615.608,623.636 615.608,623.89 578.174,623.89 578.174,623.636 "
+     id="polygon44"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polygon
+     points="653.042,623.89 653.042,623.89 615.608,623.89 615.608,623.89 "
+     id="polygon46"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(-1,0,0,1,680,0)" />
+  <g
+     transform="translate(310.15057,677.06329)"
+     id="g77">
+    <g
+       id="g79">
+      <text
+         x="0"
+         y="0"
+         font-size="10pt"
+         id="text81"
+         style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000">
+        <tspan
+           id="tspan83"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">number of letters with matches</tspan>
+      </text>
+    </g>
+  </g>
+  <g
+     transform="translate(591.2193,342.76776)"
+     id="g86">
+    <g
+       transform="matrix(0,-1,1,0,0,0)"
+       id="g88">
+      <text
+         x="0"
+         y="0"
+         font-size="10pt"
+         id="text90"
+         style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000">
+        <tspan
+           id="tspan92"
+           style="font-size:22.5px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">number of subjects</tspan>
+      </text>
+    </g>
+  </g>
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline97"
+     points="185.11698,623.89000 185.11698,613.97000 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline99"
+     points="372.28679,623.89000 372.28679,613.97000 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline101"
+     points="559.45660,623.89000 559.45660,613.97000 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <g
+     id="g121"
+     transform="translate(304.38048,647.116)" />
+  <g
+     id="g129"
+     transform="translate(493.0505,642.116)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text131"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000">
+      <tspan
+         id="tspan133"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">26</tspan>
+    </text>
+  </g>
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline159"
+     points="166.40000,623.89000 176.32000,623.89000 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline161"
+     points="166.40000,560.41056 176.32000,560.41056 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline163"
+     points="166.40000,496.93111 176.32000,496.93111 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline165"
+     points="166.40000,433.45167 176.32000,433.45167 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline167"
+     points="166.40000,369.97222 176.32000,369.97222 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline169"
+     points="166.40000,306.49278 176.32000,306.49278 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline171"
+     points="166.40000,243.01333 176.32000,243.01333 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline173"
+     points="166.40000,179.53389 176.32000,179.53389 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline175"
+     points="166.40000,116.05444 176.32000,116.05444 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline177"
+     points="166.40000,52.57500 176.32000,52.57500 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline179"
+     points="166.40000,623.89000 166.40000,52.57500 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <g
+     id="g183"
+     transform="translate(530.20102,628.39)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text185"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan187"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">0</tspan>
+    </text>
+  </g>
+  <g
+     id="g191"
+     transform="translate(549.76889,564.911)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text193"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan195"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">500</tspan>
+    </text>
+  </g>
+  <g
+     id="g199"
+     transform="translate(558.75815,501.431)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text201"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan203"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">1000</tspan>
+    </text>
+  </g>
+  <g
+     id="g207"
+     transform="translate(558.75815,437.952)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text209"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan211"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">1500</tspan>
+    </text>
+  </g>
+  <g
+     id="g215"
+     transform="translate(559.42465,374.472)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text217"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan219"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">2000</tspan>
+    </text>
+  </g>
+  <g
+     id="g223"
+     transform="translate(559.42465,310.993)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text225"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan227"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">2500</tspan>
+    </text>
+  </g>
+  <g
+     id="g231"
+     transform="translate(559.5101,247.513)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text233"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan235"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">3000</tspan>
+    </text>
+  </g>
+  <g
+     id="g239"
+     transform="translate(559.5101,184.034)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text241"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan243"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">3500</tspan>
+    </text>
+  </g>
+  <g
+     id="g247"
+     transform="translate(559.5101,120.554)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text249"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan251"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">4000</tspan>
+    </text>
+  </g>
+  <g
+     id="g255"
+     transform="translate(559.5101,57.075)">
+    <text
+       x="0"
+       y="0"
+       font-size="10pt"
+       id="text257"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000">
+      <tspan
+         id="tspan259"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">4500</tspan>
+    </text>
+  </g>
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline261"
+     points="166.40000,623.89000 166.40000,618.17685 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline263"
+     points="166.40000,623.89000 166.40000,618.17685 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline265"
+     points="166.40000,623.89000 166.40000,618.17685 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline267"
+     points="166.40000,623.89000 166.40000,623.89000 "
+     transform="matrix(-1,0,0,1,680,0)" />
+  <g
+     transform="translate(268.0505,642.116)"
+     id="g4896">
+    <text
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+       id="text4898"
+       font-size="10pt"
+       y="0"
+       x="0">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'"
+         id="tspan4900">20</tspan>
+    </text>
+    <text
+       x="-190"
+       y="0"
+       font-size="10pt"
+       id="text4902"
+       style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000">
+      <tspan
+         id="tspan4904"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold'">15</tspan>
+    </text>
+  </g>
+</svg>

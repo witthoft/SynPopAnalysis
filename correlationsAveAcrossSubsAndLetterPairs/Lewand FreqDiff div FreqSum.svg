@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg preserveAspectRatio="xMinYMin meet" width="100%" height="100%" viewBox="0 0 560.000 420.000"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <desc>Matlab Figure Converted by PLOT2SVG written by Juerg Schwizer</desc>
+  <g id="topgroup">
+  <rect x="0" y="0" width="560.000" height="420.000" fill="#ffffff" stroke="none" />
+  <g id ="ID000000">
+  <clipPath id="ID000001">
+    <rect x="72.800" y="31.500" width="434.000" height="342.300"/>
+  </clipPath>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="72.800,373.800 506.800,373.800 506.800,31.500 72.800,31.500 "/>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="72.800,31.500 506.800,31.500 506.800,31.500 72.800,31.500 "/>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="72.800,373.800 72.800,373.800 72.800,31.500 72.800,31.500 "/>
+    <g>
+<g id="ID000002" clip-path="url(#ID000001)" >
+<g>
+<circle cx="267.773" cy="203.303" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="292.432" cy="202.416" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="140.770" cy="207.871" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="193.745" cy="205.966" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="330.506" cy="201.046" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="124.100" cy="208.471" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="247.890" cy="204.018" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="382.500" cy="199.176" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="359.126" cy="200.017" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="345.531" cy="200.506" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="279.198" cy="202.892" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="306.387" cy="201.914" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="245.361" cy="204.109" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="285.745" cy="202.656" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="291.581" cy="202.447" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="230.909" cy="204.629" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="289.975" cy="202.504" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="321.671" cy="201.364" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="451.905" cy="196.680" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="332.759" cy="200.965" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="260.230" cy="203.574" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="319.817" cy="201.431" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="410.693" cy="198.162" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="216.347" cy="205.153" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="431.107" cy="197.428" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="465.928" cy="196.175" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="358.439" cy="200.042" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="229.619" cy="204.675" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="289.803" cy="202.510" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="225.054" cy="204.840" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="269.357" cy="203.246" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="206.193" cy="205.518" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="396.516" cy="198.672" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="269.502" cy="203.241" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="262.935" cy="203.477" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="149.792" cy="207.547" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="474.459" cy="195.868" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="428.421" cy="197.524" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="308.605" cy="201.834" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="311.689" cy="201.723" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="378.223" cy="199.330" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="373.847" cy="199.487" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="291.643" cy="202.444" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="341.896" cy="200.637" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="297.718" cy="202.226" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="369.042" cy="199.660" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="333.925" cy="200.923" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="271.013" cy="203.186" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="359.305" cy="200.010" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="437.185" cy="197.209" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="370.108" cy="199.622" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="302.255" cy="202.063" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="132.320" cy="208.175" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="277.047" cy="202.969" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="203.385" cy="205.619" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="373.204" cy="199.510" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="317.554" cy="201.512" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="237.751" cy="204.383" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="303.753" cy="202.009" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="254.143" cy="203.793" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="303.295" cy="202.025" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="385.210" cy="199.079" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="254.962" cy="203.764" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="264.393" cy="203.425" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+<circle cx="221.106" cy="204.982" r="5.000" fill="#00ffff" stroke="#00ffff" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000003" clip-path="url(#ID000001)" >
+<g>
+<circle cx="267.773" cy="342.734" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="292.432" cy="317.813" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="140.770" cy="298.823" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="193.745" cy="289.853" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="330.506" cy="282.004" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="124.100" cy="276.882" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="247.890" cy="271.802" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="382.500" cy="267.715" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="359.126" cy="264.463" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="345.531" cy="261.049" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="279.198" cy="254.472" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="306.387" cy="249.717" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="245.361" cy="247.603" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="285.745" cy="245.139" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="291.581" cy="243.532" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="230.909" cy="242.026" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="289.975" cy="238.932" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="321.671" cy="237.540" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="451.905" cy="235.168" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="332.759" cy="234.043" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="260.230" cy="232.519" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="319.817" cy="228.889" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="410.693" cy="226.835" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="216.347" cy="225.866" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="431.107" cy="223.738" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="465.928" cy="222.088" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="358.439" cy="220.427" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="229.619" cy="219.691" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="289.803" cy="218.241" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="225.054" cy="215.861" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="269.357" cy="212.490" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="206.193" cy="208.113" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="396.516" cy="206.441" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="269.502" cy="204.677" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="262.935" cy="202.675" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="149.792" cy="200.088" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="474.459" cy="198.053" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="428.421" cy="195.692" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="308.605" cy="193.027" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="311.689" cy="189.772" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="378.223" cy="188.369" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="373.847" cy="186.480" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="291.643" cy="184.301" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="341.896" cy="181.416" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="297.718" cy="180.001" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="369.042" cy="176.904" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="333.925" cy="175.126" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="271.013" cy="172.326" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="359.305" cy="167.730" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="437.185" cy="164.431" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="370.108" cy="160.233" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="302.255" cy="158.728" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="132.320" cy="156.343" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="277.047" cy="151.799" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="203.385" cy="145.029" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="373.204" cy="141.025" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="317.554" cy="135.809" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="237.751" cy="130.505" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="303.753" cy="120.126" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="254.143" cy="115.531" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="303.295" cy="106.248" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="385.210" cy="97.809" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="254.962" cy="85.408" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="264.393" cy="71.951" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+<circle cx="221.106" cy="33.509" r="1.667" fill="#ff0000" stroke="none" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000004" >
+  <g transform="translate(289.300,405.820)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>Lewand FreqDiff div FreqSum</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000005" >
+  <g transform="translate(44.800,204.151)">
+    <g transform="rotate(-90.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>mean L*a*b* distance</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000006" >
+  <g transform="translate(289.300,23.495)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.0023096% variance explained r=0.048058 : rho = 0.068575 p = 0.58643</tspan></text>
+    </g>
+  </g>
+</g>
+    </g>
+    <g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 72.80000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="127.05000,373.80000 127.05000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="181.30000,373.80000 181.30000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="235.55000,373.80000 235.55000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="289.80000,373.80000 289.80000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="344.05000,373.80000 344.05000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="398.30000,373.80000 398.30000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="452.55000,373.80000 452.55000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="506.80000,373.80000 506.80000,369.46000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 506.80000,373.80000 "/>
+  <g transform="translate(72.800,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.1</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(127.050,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.2</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(181.300,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.3</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(235.550,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.4</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(289.800,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.5</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(344.050,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.6</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(398.300,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.7</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(452.550,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.8</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(506.800,392.446)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.9</tspan></text>
+    </g>
+  </g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 77.14000,373.80000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,331.01250 77.14000,331.01250 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,288.22500 77.14000,288.22500 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,245.43750 77.14000,245.43750 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,202.65000 77.14000,202.65000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,159.86250 77.14000,159.86250 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,117.07500 77.14000,117.07500 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,74.28750 77.14000,74.28750 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,31.50000 77.14000,31.50000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 72.80000,31.50000 "/>
+  <g transform="translate(64.120,378.300)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>50</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,335.512)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>55</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,292.725)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>60</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,249.937)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>65</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,207.150)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>70</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,164.362)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>75</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,121.575)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>80</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,78.788)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>85</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(64.120,36.000)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>90</tspan></text>
+    </g>
+  </g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 72.80000,370.37700 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 72.80000,370.37700 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 72.80000,370.37700 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="72.80000,373.80000 72.80000,373.80000 "/>
+    </g>
+  </g>
+  </g>
+</svg>

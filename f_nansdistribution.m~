@@ -1,0 +1,281 @@
+function   nansinfo = f_nansdistribution(rgb_data, group)
+
+%  nansinfo = f_nansdistribution(rgb_data, group)
+
+
+% take a set of rgb matching data and count the number of letters not
+% matched in various ways
+% total number of possible matches
+% number not matched
+% number not matched by letter
+% number not matched by subject
+% 
+
+
+
+
+
+% this is handy for labeling figures
+letters = {'A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J' 'K' 'L' 'M' 'N' 'O' 'P' 'Q' 'R' 'S' 'T' 'U' 'V' 'W' 'X' 'Y' 'Z'};
+
+
+% index to subjects with NaNs
+subswnans = [];
+% how many NaNs for each subject
+numnans = [];
+% for each subject
+for i=1:length(rgb_data)
+%     check for a nan
+    y=sum(isnan(rgb_data(i,2,:)));
+    if y>0
+%     fprintf('subject %g has %g nans \n',i,y);
+    subswnans = [subswnans i];
+    numnans = [numnans y];
+    else
+        numnans = [numnans 0];
+    end
+end
+    
+% % so less than 5% of the matches are NaNs
+% 6588*26=171288
+%       
+% sum(numnans)
+% ans =
+%         7352
+% 7352/171288
+% ans =
+%      0.042922
+% which is not too bad, but we need to account for them.
+
+%  these are distributed throughout 35% of the population (which is more
+%  than I would have expected)
+% size(subswnans,2)/6588 =0.352
+
+% if we do nothing, the nans get assigned the color black (0,0,0);
+
+% the matches also get the label 0 which corresponds also to the color
+% black
+
+% however if we don't allow the interpolation at the label assignment
+% stage, then things should fix themselves in the histograms.  this fix is
+% in the function fpRGB2ColorsJW.m.   All the functions appear to work now.
+% let's make some plots so we can see where the problems are.  
+
+
+% make a directory to save the figures if one doesn't exist
+
+nansavdir = 'nansdistribution';
+
+if ~exist(nansavdir,'dir')
+    mkdir(nansavdir);
+end
+
+
+% number of histogram of subjects with n NaNs
+
+figure('Name','histogram of subjects with n letters with no color','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+hist(numnans,[0:26]);
+xlabel('number of letters with no match');
+% so many are 0 that we need a log scale on y
+hold on;
+ylabel('number of subjects');
+box off;
+set(gca,'XLim',[-.5 26]);
+saveas(gcf,[nansavdir '/histofnomatchesAllsubs.png'],'png');
+plot2svg([nansavdir '/histofnomatchesAllsubs.svg'],gcf);
+
+close(gcf);
+
+
+
+% do this as percentages
+h=hist(numnans,[0:26]);
+
+pctnans = h/sum(h);
+
+% 
+%             0        0.648
+%             1      0.12614
+%             2      0.05935
+%             3      0.03901
+%             4     0.034153
+%             5     0.025956
+%             6     0.022769
+%             7     0.018367
+%             8     0.016697
+%             9    0.0069824
+%            10    0.0022769
+%            11   0.00030358
+%            12            0
+%            13            0
+%            14            0
+%            15            0
+%            16            0
+%            17            0
+%            18            0
+%            19            0
+%            20            0
+%            21            0
+%            22            0
+%            23            0
+%            24            0
+%            25            0
+%            26            0
+
+
+
+figure('Name','percent of subjects with n letters with no color','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+bar(pctnans);
+
+xlabel('number of letters with no match');
+ylabel('percent of subjects');
+box off;
+set(gca,'XLim',[0 26]);
+
+saveas(gcf,[nansavdir '/normhistofnomatchesAllsubs.png'],'png');
+plot2svg([nansavdir '/normhistofnomatchesAllsubs.svg'],gcf);
+% close(gcf);
+
+
+
+
+
+% how is this behavior distributed across letters?
+figure('Name','distribution of nans across letters','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+
+subplot(1,2,1);
+% figure where nans are black and color matches are white
+% get one rgb column of data for subs x letters
+nansmatrix = squeeze(rgb_data(:,2,:));
+
+nansmatrix(find(~isnan(nansmatrix)))=0;
+nansmatrix(find(isnan(nansmatrix)))=1;
+imagesc(nansmatrix);  
+colormap(bone);
+box off;
+xlabel('letters');
+ylabel('subjects');
+set(gca,'XTick',[1:26],'XTickLabel',letters);
+% set(gca,'XTickLabel',letters);
+
+
+% let's look at the distribution across letters
+subplot(1,2,2);
+
+bar(sum(nansmatrix)/length(rgb_data));
+box off;
+xlabel('letters');
+ylabel('% of times not matched');
+set(gca,'XTick',[1:26],'XTickLabel',letters);
+% set(gca,'XTickLabel',letters);
+saveas(gcf,[nansavdir '/distofnonmatchesAcrossLetters.png'],'png');
+plot2svg([nansavdir '/distofnonmatchesAcrossLetters.svg'],gcf);
+% close(gcf);
+
+% 
+% need to add lewand frequency here if this is going to work. is still in
+% main script
+% 
+% % hmmmm is number of nans predicted by the letter frequency?
+% 
+% lewand frequency
+% 5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26
+% e t   a o   i n  s   h r   d l  c u   m  w  f g y p   b v    k  j  x  q  z
+fqorder = [5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26];
+
+% how is this behavior distributed across letters?
+figure('Name','distribution of nans across letters fqsort','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+
+subplot(1,2,1);
+% figure where nans are black and color matches are white
+% get one rgb column of data for subs x letters
+nansmatrix = squeeze(rgb_data(:,2,:));
+
+nansmatrix(find(~isnan(nansmatrix)))=0;
+nansmatrix(find(isnan(nansmatrix)))=1;
+imagesc(nansmatrix(:,fqorder));  
+colormap(bone);
+box off;
+xlabel('letters');
+ylabel('subjects');
+set(gca,'XTick',[1:26],'XTickLabel',letters(fqorder));
+% set(gca,'XTickLabel',letters);
+
+
+% let's look at the distribution across letters
+subplot(1,2,2);
+
+bar(sum(nansmatrix(:,fqorder))/length(rgb_data));
+box off;
+xlabel('letters');
+ylabel('% of times not matched');
+set(gca,'XTick',[1:26],'XTickLabel',letters(fqorder));
+% set(gca,'XTickLabel',letters);
+saveas(gcf,[nansavdir '/distofnonmatchesAcrossLettersFQ.png'],'png');
+plot2svg([nansavdir '/distofnonmatchesAcrossLettersFQ.svg'],gcf);
+% close(gcf);
+
+% fq of first letter in a word
+
+% 20 1 19 8 23 9 15 2 13 6 3 12 4 16 14 5 7 18 25 21 22 10 11 24 26 24
+% t  a s  h w  i o  b m  f c l  d p  n  e g r  y  u  v  j  k  q  z  x
+
+fqfirst = [20 1 19 8 23 9 15 2 13 6 3 12 4 16 14 5 7 18 25 21 22 10 11 24 26 24];
+
+% how is this behavior distributed across letters?
+figure('Name','distribution of nans across letters fqsort','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+
+subplot(1,2,1);
+% figure where nans are black and color matches are white
+% get one rgb column of data for subs x letters
+nansmatrix = squeeze(rgb_data(:,2,:));
+
+nansmatrix(find(~isnan(nansmatrix)))=0;
+nansmatrix(find(isnan(nansmatrix)))=1;
+imagesc(nansmatrix(:,fqfirst));  
+colormap(bone);
+box off;
+xlabel('letters');
+ylabel('subjects');
+set(gca,'XTick',[1:26],'XTickLabel',letters(fqfirst));
+% set(gca,'XTickLabel',letters);
+
+
+% let's look at the distribution across letters
+subplot(1,2,2);
+
+bar(sum(nansmatrix(:,fqfirst))/length(rgb_data));
+box off;
+xlabel('letters');
+ylabel('% of times not matched');
+set(gca,'XTick',[1:26],'XTickLabel',letters(fqfirst));
+% set(gca,'XTickLabel',letters);
+saveas(gcf,[nansavdir '/distofnonmatchesAcrossLettersFQfirst.png'],'png');
+plot2svg([nansavdir '/distofnonmatchesAcrossLettersFQfirst.svg'],gcf);
+% close(gcf);
+
+
+
+% make some tables and return some info
+
+nansinfo.totalmatches = length(rgb_data*26);
+nansinfo.totalnans = sum(numnans);
+nansinfo.nansbyletter = sum(nansmatrix);
+nansinfo.nansbysubject = hist(numnans,0:26);
+
+
+
+
+
+
+
+end
+
+% 
+% [nancor nanp] = corr(log(lewandfq),pctnansbyletter','rows','pairwise','type','spearman');
+% figure;
+% 
+% plot(log(lewandfq),pctnansbyletter','ro');
+% hold on;
+% text(log(lewandfq),pctnansbyletter',letters);
+

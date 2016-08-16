@@ -209,3 +209,271 @@ set(gca,'Xlim',[0 1],'YLim',[0 1],'ZLim',[0 1]);
 axis equal
 
 title('uniform distribution');
+
+
+
+
+
+
+
+% let's plot the same thing, but in L*a*b* coordinates
+
+% first we havt to get the RGB coords to Lab
+
+[Lum adim bdim] = RGB2Lab(allletterhists(:,1),allletterhists(:,2),allletterhists(:,3));
+
+% put them into the same representation we have been using
+Laballletterhists =[Lum adim bdim allletterhists(:,4)];
+
+figure('name',['distribution across L*a*b* space for ' dataname],'Color',[1 1 1], 'Position',get(0,'ScreenSize'));
+
+subplot(1,2,1);
+
+%     BUBBLEPLOT3(x,y,z,r,c), where c is a rgb-triplet array (in [0,1])
+%     with numel(x) rows, plots bubbles with colours specified by c.
+
+% BUBBLEPLOT3(allletterhists(p,1)',allletterhists(p,2)',allletterhists(p,3)
+% ',10*(sizes(p)/sum(sizes))',allletterhists(p,1:3));
+
+h1=bubbleplot3(Laballletterhists(p,2)',Laballletterhists(p,3)',Laballletterhists(p,1)',75*scalefactor*(sizes(p)/sum(sizes(p)))',allletterhists(p,1:3));
+
+ha1=get(gca);
+
+
+xlabel('a*');ylabel('b*');zlabel('L*');
+title('data distribution');
+
+
+% pair it with a uniform distribution
+% figure('name',['uniform distribution across rgb space'],'Color',[1 1 1]);
+
+subplot(1,2,2);
+
+% total number of matches
+numletterswithmatches = sum(sizes(p));
+% number for each point
+u = numletterswithmatches/(length(roundvec)^3);
+
+ bplotmatrix(:,4) = u;
+
+h2=bubbleplot3(Laballletterhists(p,2)',Laballletterhists(p,3)',Laballletterhists(p,1)',75*(scalefactor*bplotmatrix(:,4)/numletterswithmatches)',bplotmatrix(:,1:3));
+xlabel('a*');ylabel('b*');zlabel('L*');
+
+
+title('uniform distribution');
+
+% for rotation
+% rotate(h,direction,alpha)
+% direction = [1 0 0];
+% View the object from directly overhead.
+% 
+% az = 0;
+% el = 90;
+% view(az, el);
+
+% this works pretty well.  but maybe what we can do is just divide the Lab
+% cube up and then recalculate the number at each point.  its a little
+% weird because when we color the dots we have to get the relevant RGB
+% value and it may be out of gamut.
+
+
+% take all the color matches and transform to Lab coordinates
+% matches is 6188 x 26 x 3 so
+LabMatches = matches;
+
+
+% convert to LAB so this matrix is subjects x Lab
+[LabMatches(:,:,1) LabMatches(:,:,2) LabMatches(:,:,3)] = RGB2Lab(matches(:,:,1),matches(:,:,2), matches(:,:,3));
+
+
+% % 
+% hard code the rounding matrix for now
+
+% Lstar = linspace(0,100,5);
+% astar = linspace(-60,60,5);%this one is weird because you need to catch the greyscale values at a=b=0
+% bstar = astar;
+
+
+% general formula
+% pick number of ab bins 
+numabbins = 4;
+
+% assuming symmetry around 0 any even choice of bins will be ok
+abbins = linspace(-64,64,numabbins+2);
+% this will give you the edges of your bins
+% get half the size of the bins
+% dist to center
+dist2cntr = abs(abbins(1)-abbins(2))/2;
+% add this to every value in bins except last one..not sure we need
+% rounding
+astar = round(abbins(1:end-1)+dist2cntr);
+bstar=astar;
+
+% pick number of L bins
+numLbins = 4;
+Lbins = linspace(0,100,numLbins+2);
+dist2cntr = abs(Lbins(1)-Lbins(2))/2;
+Lstar = round(Lbins(1:end-1)+dist2cntr);
+
+
+
+% number of coordinates is space
+numcoords = length(Lstar)*length(astar)*length(bstar);
+
+
+% let's do the rounding
+roundedLabMatches = LabMatches;
+
+roundedLabMatches(:,:,1)=roundtowardvec(LabMatches(:,:,1),Lstar,'round');
+roundedLabMatches(:,:,2)=roundtowardvec(LabMatches(:,:,2),astar,'round');
+roundedLabMatches(:,:,3)=roundtowardvec(LabMatches(:,:,3),bstar,'round');
+
+% the index of the value in Lstar astar bstar is the gives the xyz
+% coordinate
+
+labplotmatrix = zeros(length(Lstar),length(astar),length(bstar));
+
+% but for bubble plot need numcoords*4 which is x y z value color
+labbubblematrix=zeros(numcoords,4);
+
+% will also need a color for each coordinate
+labbubblecolors = zeros(numcoords,3);
+
+
+
+% let's make a single Lab vector
+rlmvector = reshape(roundedLabMatches,size(roundedLabMatches,1)*size(roundedLabMatches,2),3);
+
+% counter for indexing bubble plot matrix
+counter =1;
+% probably could have done this in a single step but thinking....
+for L=1:length(Lstar)
+    for a=1:length(astar)
+        for b=1:length(bstar)
+            %          find elements with that index
+            labplotmatrix(L,a,b)=sum(ismember(rlmvector,[Lstar(L),astar(a),bstar(b)],'rows'));
+            labbubblematrix(counter,:)=[Lstar(L) astar(a) bstar(b) ...
+                sum(ismember(rlmvector,[Lstar(L),astar(a),bstar(b)],'rows'))];
+            %         if there were any matches at this coordinate add an rgb color
+            if labbubblematrix(counter,4)~=0
+                labbubblecolors(counter,:)=Lab2RGB(Lstar(L),astar(a),bstar(b));
+            end
+            counter=counter+1;
+        end
+        
+    end
+end
+
+
+% scale the bubbles so that the size visually reflects proportion
+
+
+switch(circparam)
+    case('radius')
+        %         do nothing
+    case('area')
+        % linear with area
+        labbubblematrix(:,4) = sqrt(labbubblematrix(:,4)*pi);
+    case('diameter')
+        % linear with diameter
+        labbubblematrix(:,4) = labbubblematrix(:,4)*2
+end
+
+
+
+figure;
+
+% then make the bubble plot
+% bubbleplot3(labbubblematrix(:,1),labbubblematrix(:,2),...
+%     labbubblematrix(:,3),labbubblematrix(:,4)/10,labbubblecolors/255);
+% xlabel('L*');ylabel('a*');zlabel('b*');
+
+% actual distribution
+subplot(1,2,1);
+
+bubbleplot3(labbubblematrix(:,2),labbubblematrix(:,3),...
+    labbubblematrix(:,1),labbubblematrix(:,4)/10,labbubblecolors/255);
+
+xlabel('a*');ylabel('b*');zlabel('L*');
+% 
+% set(gca,'XTickLabel',Lstar,'YTickLabel',astar,'ZTickLabel',bstar)
+
+
+% uniform distribution
+% this is a little tricky since we don't exactly know how many coordinates
+% in Lab space there are since it is not really a cube.  as a trick we can
+% just find every coordinate that was assigned a color, and then give each
+% coordinate an equal number of matches.
+
+% find index and number of coordinates with matches
+hasmatches = find(labbubblematrix(:,4)~=0);
+
+% set uniform bubblesize total matches/numcoords
+ububblesize = sum(labbubblematrix(:,4))/length(hasmatches);
+
+subplot(1,2,2);
+
+
+
+bubbleplot3(labbubblematrix(hasmatches,2),labbubblematrix(hasmatches,3),...
+    labbubblematrix(hasmatches,1),(ububblesize/10)*ones(length(hasmatches),1),labbubblecolors(hasmatches,:)/255);
+
+xlabel('a*');ylabel('b*');zlabel('L*');
+
+
+
+
+
+
+
+
+
+
+
+end
+
+
+
+
+
+
+%     BUBBLEPLOT3(x,y,z,r), where x, y, z and r are four vectors of the
+%     same length, plots bubbles of radii r in 3-space with centers at
+%     the points whose coordinates are the elements of x, y and z. If r
+%     is a matrix of size numel(x)x3, BUBBLEPLOT3 produces ellipsoids with
+%     centers x(i),y(i),z(i) and radii r(i,1), r(i,2) and r(i,3).
+%
+%     BUBBLEPLOT3(x,y,z,r,c), where c is a rgb-triplet array (in [0,1])
+%     with numel(x) rows, plots bubbles with colours specified by c.
+
+
+
+
+
+% % create the bins.  add 2 to get edges
+% roundbins = linspace(0,1,nbins+2);
+% % now find the bin centers.  these will be half the bin size subtracted
+% % from each bin that is not an edge
+% roundvec = roundbins(2:end)-roundbins(2)/2;
+
+
+
+
+
+% round to nearest Lab Coordinate
+
+% only display Lab Coordinates with value greater than 0 to avoid out of
+% gamut problems
+
+% record which coordinates those are to make uniform comparison
+
+
+
+
+
+
+
+
+
+
+

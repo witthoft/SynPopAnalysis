@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   preserveAspectRatio="xMinYMin meet"
+   width="100%"
+   height="100%"
+   viewBox="0 0 560.000 420.000"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="6188SynesthetesMatchingPerformanceHist.svg">
+  <metadata
+     id="metadata331">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs329">
+    <clipPath
+       id="ID000001">
+      <rect
+         x="72.800003"
+         y="31.5"
+         width="434"
+         height="342.29999"
+         id="rect11" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="752"
+     id="namedview327"
+     showgrid="true"
+     inkscape:zoom="1.5657364"
+     inkscape:cx="349.7437"
+     inkscape:cy="153.80287"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5091" />
+  </sodipodi:namedview>
+  <desc
+     id="desc4">Matlab Figure Converted by PLOT2SVG written by Juerg Schwizer</desc>
+  <polygon
+     points="72.8,373.8 72.8,373.8 72.8,31.5 72.8,31.5 "
+     id="polygon17"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="69.183,373.8 69.183,373.8 76.417,373.8 76.417,373.8 "
+     id="polygon22"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="76.417,373.8 76.417,373.311 83.65,373.311 83.65,373.8 "
+     id="polygon24"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="83.65,373.8 83.65,373.311 90.883,373.311 90.883,373.8 "
+     id="polygon26"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="90.883,373.8 90.883,372.333 98.117,372.333 98.117,373.8 "
+     id="polygon28"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="98.117,373.8 98.117,369.888 105.35,369.888 105.35,373.8 "
+     id="polygon30"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="105.35,373.8 105.35,363.531 112.583,363.531 112.583,373.8 "
+     id="polygon32"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="112.583,373.8 112.583,331.746 119.817,331.746 119.817,373.8 "
+     id="polygon34"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="119.817,373.8 119.817,313.653 127.05,313.653 127.05,373.8 "
+     id="polygon36"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="127.05,373.8 127.05,252.039 134.283,252.039 134.283,373.8 "
+     id="polygon38"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="134.283,373.8 134.283,205.584 141.517,205.584 141.517,373.8 "
+     id="polygon40"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="141.517,373.8 141.517,142.503 148.75,142.503 148.75,373.8 "
+     id="polygon42"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="148.75,373.8 148.75,92.136 155.983,92.136 155.983,373.8 "
+     id="polygon44"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="155.983,373.8 155.983,96.048 163.217,96.048 163.217,373.8 "
+     id="polygon46"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="163.217,373.8 163.217,77.466 170.45,77.466 170.45,373.8 "
+     id="polygon48"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="170.45,373.8 170.45,78.933 177.683,78.933 177.683,373.8 "
+     id="polygon50"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="177.683,373.8 177.683,104.85 184.917,104.85 184.917,373.8 "
+     id="polygon52"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="184.917,373.8 184.917,105.339 192.15,105.339 192.15,373.8 "
+     id="polygon54"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="192.15,373.8 192.15,139.08 199.383,139.08 199.383,373.8 "
+     id="polygon56"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="199.383,373.8 199.383,163.53 206.617,163.53 206.617,373.8 "
+     id="polygon58"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="206.617,373.8 206.617,201.672 213.85,201.672 213.85,373.8 "
+     id="polygon60"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="213.85,373.8 213.85,293.115 221.083,293.115 221.083,373.8 "
+     id="polygon62"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="221.083,373.8 221.083,373.8 228.317,373.8 228.317,373.8 "
+     id="polygon64"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="228.317,373.8 228.317,373.8 235.55,373.8 235.55,373.8 "
+     id="polygon66"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="235.55,373.8 235.55,373.8 242.783,373.8 242.783,373.8 "
+     id="polygon68"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="242.783,373.8 242.783,373.8 250.017,373.8 250.017,373.8 "
+     id="polygon70"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="250.017,373.8 250.017,373.8 257.25,373.8 257.25,373.8 "
+     id="polygon72"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="257.25,373.8 257.25,373.8 264.483,373.8 264.483,373.8 "
+     id="polygon74"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="264.483,373.8 264.483,373.8 271.717,373.8 271.717,373.8 "
+     id="polygon76"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="271.717,373.8 271.717,373.8 278.95,373.8 278.95,373.8 "
+     id="polygon78"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="278.95,373.8 278.95,373.8 286.183,373.8 286.183,373.8 "
+     id="polygon80"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="286.183,373.8 286.183,373.8 293.417,373.8 293.417,373.8 "
+     id="polygon82"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="293.417,373.8 293.417,373.8 300.65,373.8 300.65,373.8 "
+     id="polygon84"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="300.65,373.8 300.65,373.8 307.883,373.8 307.883,373.8 "
+     id="polygon86"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="307.883,373.8 307.883,373.8 315.117,373.8 315.117,373.8 "
+     id="polygon88"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="315.117,373.8 315.117,373.8 322.35,373.8 322.35,373.8 "
+     id="polygon90"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="322.35,373.8 322.35,373.8 329.583,373.8 329.583,373.8 "
+     id="polygon92"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="329.583,373.8 329.583,373.8 336.817,373.8 336.817,373.8 "
+     id="polygon94"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="336.817,373.8 336.817,373.8 344.05,373.8 344.05,373.8 "
+     id="polygon96"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="344.05,373.8 344.05,373.8 351.283,373.8 351.283,373.8 "
+     id="polygon98"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="351.283,373.8 351.283,373.8 358.517,373.8 358.517,373.8 "
+     id="polygon100"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="358.517,373.8 358.517,373.8 365.75,373.8 365.75,373.8 "
+     id="polygon102"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="365.75,373.8 365.75,373.8 372.983,373.8 372.983,373.8 "
+     id="polygon104"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="372.983,373.8 372.983,373.8 380.217,373.8 380.217,373.8 "
+     id="polygon106"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="380.217,373.8 380.217,373.8 387.45,373.8 387.45,373.8 "
+     id="polygon108"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="387.45,373.8 387.45,373.8 394.683,373.8 394.683,373.8 "
+     id="polygon110"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="394.683,373.8 394.683,373.8 401.917,373.8 401.917,373.8 "
+     id="polygon112"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="401.917,373.8 401.917,373.8 409.15,373.8 409.15,373.8 "
+     id="polygon114"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="409.15,373.8 409.15,373.8 416.383,373.8 416.383,373.8 "
+     id="polygon116"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="416.383,373.8 416.383,373.8 423.617,373.8 423.617,373.8 "
+     id="polygon118"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="423.617,373.8 423.617,373.8 430.85,373.8 430.85,373.8 "
+     id="polygon120"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="430.85,373.8 430.85,373.8 438.083,373.8 438.083,373.8 "
+     id="polygon122"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="438.083,373.8 438.083,373.8 445.317,373.8 445.317,373.8 "
+     id="polygon124"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="445.317,373.8 445.317,373.8 452.55,373.8 452.55,373.8 "
+     id="polygon126"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="452.55,373.8 452.55,373.8 459.783,373.8 459.783,373.8 "
+     id="polygon128"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="459.783,373.8 459.783,373.8 467.017,373.8 467.017,373.8 "
+     id="polygon130"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="467.017,373.8 467.017,373.8 474.25,373.8 474.25,373.8 "
+     id="polygon132"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="474.25,373.8 474.25,373.8 481.483,373.8 481.483,373.8 "
+     id="polygon134"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="481.483,373.8 481.483,373.8 488.717,373.8 488.717,373.8 "
+     id="polygon136"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="488.717,373.8 488.717,373.8 495.95,373.8 495.95,373.8 "
+     id="polygon138"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="495.95,373.8 495.95,373.8 503.183,373.8 503.183,373.8 "
+     id="polygon140"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="503.183,373.8 503.183,373.8 510.417,373.8 510.417,373.8 "
+     id="polygon142"
+     style="fill:#00008f;fill-opacity:1;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="-204.151"
+     y="30.799999"
+     font-size="10pt"
+     id="text149"
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     transform="matrix(0,-1,1,0,0,0)"
+     sodipodi:linespacing="125%">
+    <tspan
+       id="tspan151"
+       style="-inkscape-font-specification:'Helvetica, Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:middle;text-align:center;writing-mode:lr;line-height:125%">number of subjects</tspan>
+  </text>
+  <text
+     x="289.29999"
+     y="405.82001"
+     font-size="10pt"
+     id="text158"
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     sodipodi:linespacing="125%">
+    <tspan
+       id="tspan160"
+       style="-inkscape-font-specification:'Helvetica, Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:middle;text-align:center;writing-mode:lr;line-height:125%">average matching distance</tspan>
+  </text>
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline165"
+     points="72.80000,373.80000 72.80000,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline167"
+     points="145.13333,373.80000 145.13333,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline169"
+     points="217.46667,373.80000 217.46667,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline171"
+     points="289.80000,373.80000 289.80000,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline173"
+     points="362.13333,373.80000 362.13333,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline175"
+     points="434.46667,373.80000 434.46667,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline177"
+     points="506.80000,373.80000 506.80000,369.46000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;stroke-miterlimit:4"
+     id="polyline179"
+     points="72.80000,373.80000 506.80000,373.80000 " />
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text185"
+     font-size="10pt"
+     y="388.44601"
+     x="79.300003"
+     sodipodi:linespacing="125%">
+    <tspan
+       id="tspan187"
+       style="-inkscape-font-specification:'Helvetica, Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:15px;text-anchor:middle;text-align:center;writing-mode:lr;line-height:125%">0</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text193"
+     font-size="10pt"
+     y="388.44601"
+     x="151.633">
+    <tspan
+       id="tspan195"
+       style="font-weight:bold;font-size:15px">0.5</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text201"
+     font-size="10pt"
+     y="388.44601"
+     x="223.967">
+    <tspan
+       id="tspan203"
+       style="font-weight:bold;font-size:15px">1</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text209"
+     font-size="10pt"
+     y="388.44601"
+     x="296.29999">
+    <tspan
+       id="tspan211"
+       style="font-weight:bold;font-size:15px">1.5</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text217"
+     font-size="10pt"
+     y="388.44601"
+     x="366.133">
+    <tspan
+       id="tspan219"
+       style="font-weight:bold;font-size:15px">2</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text225"
+     font-size="10pt"
+     y="388.44601"
+     x="440.96701">
+    <tspan
+       id="tspan227"
+       style="font-weight:bold;font-size:15px">2.5</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+     id="text233"
+     font-size="10pt"
+     y="388.44601"
+     x="509.79999">
+    <tspan
+       id="tspan235"
+       style="font-weight:bold;font-size:15px">3</tspan>
+  </text>
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline237"
+     points="72.80000,373.80000 77.14000,373.80000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline239"
+     points="72.80000,324.90000 77.14000,324.90000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline241"
+     points="72.80000,276.00000 77.14000,276.00000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline243"
+     points="72.80000,227.10000 77.14000,227.10000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline245"
+     points="72.80000,178.20000 77.14000,178.20000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline247"
+     points="72.80000,129.30000 77.14000,129.30000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline249"
+     points="72.80000,80.40000 77.14000,80.40000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline251"
+     points="72.80000,31.50000 77.14000,31.50000 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;stroke-miterlimit:4"
+     id="polyline253"
+     points="72.80000,373.80000 72.80000,31.50000 " />
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text259"
+     font-size="10pt"
+     y="378.29999"
+     x="64.120003">
+    <tspan
+       id="tspan261"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">0</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text267"
+     font-size="10pt"
+     y="329.39999"
+     x="64.120003">
+    <tspan
+       id="tspan269"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">100</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text275"
+     font-size="10pt"
+     y="280.5"
+     x="64.120003">
+    <tspan
+       id="tspan277"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">200</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text283"
+     font-size="10pt"
+     y="231.60001"
+     x="64.120003">
+    <tspan
+       id="tspan285"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">300</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text291"
+     font-size="10pt"
+     y="182.7"
+     x="64.120003">
+    <tspan
+       id="tspan293"
+       style="-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:15px">400</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text299"
+     font-size="10pt"
+     y="133.8"
+     x="64.120003">
+    <tspan
+       id="tspan301"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">500</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text307"
+     font-size="10pt"
+     y="84.900002"
+     x="64.120003">
+    <tspan
+       id="tspan309"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">600</tspan>
+  </text>
+  <text
+     style="font-size:12.5px;font-family:Helvetica;text-anchor:end;fill:#000000"
+     id="text315"
+     font-size="10pt"
+     y="36"
+     x="64.120003">
+    <tspan
+       id="tspan317"
+       style="font-size:15px;-inkscape-font-specification:'Helvetica Bold';font-family:Helvetica;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">700</tspan>
+  </text>
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline319"
+     points="72.80000,373.80000 72.80000,370.37700 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline321"
+     points="72.80000,373.80000 72.80000,370.37700 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline323"
+     points="72.80000,373.80000 72.80000,370.37700 " />
+  <polyline
+     style="fill:none;stroke:#000000;stroke-width:0.5pt;stroke-dasharray:none;stroke-opacity:1"
+     id="polyline325"
+     points="72.80000,373.80000 72.80000,373.80000 " />
+  <path
+     style="fill:#ff0000;fill-rule:evenodd;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 222,374 222,34"
+     id="path5093"
+     inkscape:connector-curvature="0" />
+</svg>

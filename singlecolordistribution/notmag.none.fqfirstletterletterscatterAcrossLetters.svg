@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg preserveAspectRatio="xMinYMin meet" width="100%" height="100%" viewBox="0 0 1280.000 701.000"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <desc>Matlab Figure Converted by PLOT2SVG written by Juerg Schwizer</desc>
+  <g id="topgroup">
+  <rect x="0" y="0" width="1280.000" height="701.000" fill="#ffffff" stroke="none" />
+  <g id ="ID000000">
+  <clipPath id="ID000001">
+    <rect x="166.400" y="52.575" width="992.000" height="571.315"/>
+  </clipPath>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="166.400,623.890 1158.400,623.890 1158.400,52.575 166.400,52.575 "/>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="166.400,52.575 1158.400,52.575 1158.400,52.575 166.400,52.575 "/>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="166.400,623.890 166.400,623.890 166.400,52.575 166.400,52.575 "/>
+    <g>
+<g id="ID000002" clip-path="url(#ID000001)" >
+<g id="ID000003" clip-path="url(#ID000001)" >
+<g>
+<circle cx="805.799" cy="609.405" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000004" clip-path="url(#ID000001)" >
+<g>
+<circle cx="425.532" cy="556.061" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000005" clip-path="url(#ID000001)" >
+<g>
+<circle cx="359.895" cy="561.190" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000006" clip-path="url(#ID000001)" >
+<g>
+<circle cx="313.547" cy="503.743" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000007" clip-path="url(#ID000001)" >
+<g>
+<circle cx="277.008" cy="560.164" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000008" clip-path="url(#ID000001)" >
+<g>
+<circle cx="374.665" cy="484.252" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000009" clip-path="url(#ID000001)" >
+<g>
+<circle cx="273.867" cy="480.148" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000010" clip-path="url(#ID000001)" >
+<g>
+<circle cx="564.964" cy="450.399" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000011" clip-path="url(#ID000001)" >
+<g>
+<circle cx="512.828" cy="265.746" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000012" clip-path="url(#ID000001)" >
+<g>
+<circle cx="199.301" cy="457.580" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000013" clip-path="url(#ID000001)" >
+<g>
+<circle cx="198.916" cy="422.701" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000014" clip-path="url(#ID000001)" >
+<g>
+<circle cx="315.476" cy="429.882" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000015" clip-path="url(#ID000001)" >
+<g>
+<circle cx="407.952" cy="531.441" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000016" clip-path="url(#ID000001)" >
+<g>
+<circle cx="296.738" cy="469.890" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000017" clip-path="url(#ID000001)" >
+<g>
+<circle cx="511.616" cy="102.636" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000018" clip-path="url(#ID000001)" >
+<g>
+<circle cx="306.658" cy="448.347" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000019" clip-path="url(#ID000001)" >
+<g>
+<circle cx="175.934" cy="134.438" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000020" clip-path="url(#ID000001)" >
+<g>
+<circle cx="257.499" cy="507.846" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000021" clip-path="url(#ID000001)" >
+<g>
+<circle cx="593.787" cy="534.518" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000022" clip-path="url(#ID000001)" >
+<g>
+<circle cx="1085.157" cy="436.037" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000023" clip-path="url(#ID000001)" >
+<g>
+<circle cx="248.350" cy="249.333" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000024" clip-path="url(#ID000001)" >
+<g>
+<circle cx="202.167" cy="323.194" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000025" clip-path="url(#ID000001)" >
+<g>
+<circle cx="538.565" cy="277.030" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000026" clip-path="url(#ID000001)" >
+<g>
+<circle cx="167.337" cy="76.990" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000027" clip-path="url(#ID000001)" >
+<g>
+<circle cx="255.680" cy="390.900" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+<g id="ID000028" clip-path="url(#ID000001)" >
+<g>
+<circle cx="168.274" cy="279.082" r="5.000" fill="#000000" stroke="#000000" stroke-width="0.5pt" />
+</g>
+</g>
+</g><g id="ID000029" >
+  <g transform="translate(819.577,618.405)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>A</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000030" >
+  <g transform="translate(439.310,565.061)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>B</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000031" >
+  <g transform="translate(373.673,570.190)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>C</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000032" >
+  <g transform="translate(327.324,512.743)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>D</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000033" >
+  <g transform="translate(290.786,569.164)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>E</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000034" >
+  <g transform="translate(388.443,493.252)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>F</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000035" >
+  <g transform="translate(287.644,489.148)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>G</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000036" >
+  <g transform="translate(578.741,459.399)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>H</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000037" >
+  <g transform="translate(526.606,274.746)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>I</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000038" >
+  <g transform="translate(213.079,466.580)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>J</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000039" >
+  <g transform="translate(212.693,431.701)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>K</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000040" >
+  <g transform="translate(329.253,438.882)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>L</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000041" >
+  <g transform="translate(421.730,540.441)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>M</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000042" >
+  <g transform="translate(310.516,478.890)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>N</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000043" >
+  <g transform="translate(525.394,111.636)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>O</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000044" >
+  <g transform="translate(320.436,457.347)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>P</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000045" >
+  <g transform="translate(189.712,143.438)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>Q</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000046" >
+  <g transform="translate(271.276,516.846)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>R</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000047" >
+  <g transform="translate(607.564,543.518)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>S</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000048" >
+  <g transform="translate(1098.935,445.037)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>T</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000049" >
+  <g transform="translate(262.128,258.333)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>U</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000050" >
+  <g transform="translate(215.945,332.194)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>V</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000051" >
+  <g transform="translate(552.343,286.030)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>W</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000052" >
+  <g transform="translate(181.115,85.990)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>X</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000053" >
+  <g transform="translate(269.458,399.900)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>Y</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000054" >
+  <g transform="translate(182.052,288.082)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="start" font-size="20pt" font-weight="bold" fill="#000000" ><tspan>Z</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000055" >
+  <g transform="translate(661.900,655.902)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>frequency first letter in English text</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000056" >
+  <g transform="translate(128.400,339.233)">
+    <g transform="rotate(-90.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>% of times matched</tspan></text>
+    </g>
+  </g>
+</g>
+<g id="ID000057" clip-path="url(#ID000001)" >
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="8.0,2.0" stroke-opacity="1.00" points="166.40000,369.14517 193.95556,373.87105 221.51111,378.59693 249.06667,383.32282 276.62222,388.04870 304.17778,392.77458 331.73333,397.50046 359.28889,402.22635 386.84444,406.95223 414.40000,411.67811 441.95556,416.40399 469.51111,421.12988 497.06667,425.85576 524.62222,430.58164 552.17778,435.30752 579.73333,440.03341 607.28889,444.75929 634.84444,449.48517 662.40000,454.21105 689.95556,458.93694 717.51111,463.66282 745.06667,468.38870 772.62222,473.11458 800.17778,477.84047 827.73333,482.56635 855.28889,487.29223 882.84444,492.01811 910.40000,496.74400 937.95556,501.46988 965.51111,506.19576 993.06667,510.92164 1020.62222,515.64753 1048.17778,520.37341 1075.73333,525.09929 1103.28889,529.82517 "/>
+</g>
+<g id="ID000058" >
+  <g transform="translate(661.900,43.571)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>r<tspan style="baseline-shift:super;font-size:65%%">2</tspan> = -2364.2974 p = 0.052364</tspan></text>
+    </g>
+  </g>
+</g>
+    </g>
+    <g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 166.40000,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="276.62222,623.89000 276.62222,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="386.84444,623.89000 386.84444,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="497.06667,623.89000 497.06667,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="607.28889,623.89000 607.28889,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="717.51111,623.89000 717.51111,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="827.73333,623.89000 827.73333,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="937.95556,623.89000 937.95556,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="1048.17778,623.89000 1048.17778,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="1158.40000,623.89000 1158.40000,613.97000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 1158.40000,623.89000 "/>
+  <g transform="translate(166.400,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(276.622,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.02</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(386.844,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.04</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(497.067,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.06</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(607.289,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.08</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(717.511,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.1</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(827.733,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.12</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(937.956,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.14</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(1048.178,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.16</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(1158.400,647.116)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="10pt" fill="#000000" ><tspan>0.18</tspan></text>
+    </g>
+  </g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 176.32000,623.89000 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,560.41056 176.32000,560.41056 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,496.93111 176.32000,496.93111 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,433.45167 176.32000,433.45167 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,369.97222 176.32000,369.97222 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,306.49278 176.32000,306.49278 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,243.01333 176.32000,243.01333 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,179.53389 176.32000,179.53389 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,116.05444 176.32000,116.05444 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,52.57500 176.32000,52.57500 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 166.40000,52.57500 "/>
+  <g transform="translate(146.560,628.390)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.01</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,564.911)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.02</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,501.431)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.03</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,437.952)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.04</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,374.472)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.05</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,310.993)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.06</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,247.513)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.07</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,184.034)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.08</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,120.554)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.09</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(146.560,57.075)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="10pt" fill="#000000" ><tspan>0.1</tspan></text>
+    </g>
+  </g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 166.40000,618.17685 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 166.40000,618.17685 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 166.40000,618.17685 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" stroke-opacity="1.00" points="166.40000,623.89000 166.40000,623.89000 "/>
+    </g>
+  </g>
+  </g>
+</svg>

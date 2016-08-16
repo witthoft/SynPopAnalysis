@@ -9,8 +9,8 @@
 datavisdir = 'databasevisualizations';
 
 % if dir doesn't exist, make it
-if ~exist('databasevisualizations','dir')
-   mkdir('databasevisualizations'); 
+if ~exist(datavisdir,'dir')
+   mkdir(datavisdir); 
 end
 
 
@@ -60,7 +60,6 @@ randp_rgb=p_rgb;
 randp_rgb(indx) =randcolors;
 
 
-% now we can look at the whole data set
 
 % now we can look at the whole data set
 figure('name', 'all matches in eagleman database', 'Color', [1 1 1],'Position',get(0,'ScreenSize'));
@@ -80,6 +79,45 @@ set(gca,'XTick',[1:26],'XTickLabel',labels, 'TickDir','out', 'YDir','normal');
 box off;
 title('nans are a random color');
 
+saveas(gcf,[datavisdir '/AllMatchesAllSubs.png'],'png');
+plot2svg([datavisdir '/AllMatchesAllsubs.svg'],gcf);
+
+close(gcf);
+
+
+
+% let's sort the letters by frequency to compare to the cognition paper
+% under review from Herman et al.
+
+% lewand frequency
+% 5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26
+% e t   a o   i n  s   h r   d l  c u   m  w  f g y p   b v    k  j  x  q  z
+fqorder = [5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26];
+
+
+% now we can look at the whole data set
+figure('name', 'all matches in eagleman database sorted by frequency', 'Color', [1 1 1],'Position',get(0,'ScreenSize'));
+subplot(1,2,1);
+imagesc(p_rgb(:,fqorder,:));
+ylabel('SUBJECTS');
+xlabel('LETTERS');
+set(gca,'XTick',[1:26],'XTickLabel',labels(fqorder), 'TickDir','out', 'YDir','normal');
+box off;
+title('fq in english');
+
+% fq of first letter in a word
+
+
+% 5 20  1 15  9 14 19  8 18  4 12 3 21  13 23 6 7 25  16  2 22   11 10 24 17 26
+% e t   a o   i n  s   h r   d l  c u   m  w  f g y p   b v      k  j  x  q z
+tashwiobmfcl
+subplot(1,2,2);
+imagesc(p_rgb(:,fqorder,:));
+ylabel('SUBJECTS');
+xlabel('LETTERS');
+set(gca,'XTick',[1:26],'XTickLabel',labels(fqorder), 'TickDir','out', 'YDir','normal');
+box off;
+title('fq as first letter in a word in english');
 
 
 
@@ -157,14 +195,11 @@ title('nans are a random color');
 % get distribution of color choices for each letter
 makeLetterXColorHist(dbNumbered);
 
-% save figure
-datavisdir = 'databasevisualizations';
 
-% if dir doesn't exist, make it
-if ~exist('databasevisualizations','dir')
-   mkdir('databasevisualizations'); 
-end
+saveas(gcf,[datavisdir '/LetterxColorHistsAllSubs.png'],'png');
+plot2svg([datavisdir '/LetterxColorHistsAllSubs.svg'],gcf);
 
+close(gcf);
 
 %
 % fsize=get(gcf,'Position');

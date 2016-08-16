@@ -327,6 +327,115 @@ syntype(find(sum(magmatches,2)>=magnetthreshold))=2;
 % maybe want to find those that are in both groups?
 
 
+% for paper just want analysis on general population
+% analysis of letters that don't have matches
+
+notmagsynsnansinfo = f_nansdistribution(u_rgb(find(syntype~=2),:,:),'notmag');
+
+% table with some useful info
+disp('number of possible matches ');
+disp(notmagsynsnansinfo.totalmatches);
+
+disp('number not matched');
+disp(notmagsynsnansinfo.totalnans);
+
+disp('proportion matched');
+disp(1-(notmagsynsnansinfo.totalnans/notmagsynsnansinfo.totalmatches));
+
+disp('number of matches');
+disp(notmagsynsnansinfo.totalmatches-notmagsynsnansinfo.totalnans);
+
+
+disp('number of subjects with number of matches');
+disp(notmagsynsnansinfo.nansbysubject);
+
+disp('      # matches  %of subs');
+disp([(26:-1:0)' (cumsum(notmagsynsnansinfo.nansbysubject)/6188)']);
+
+
+
+% some correlations 
+% correlation with position in alphabet
+[rholetterposxnans pletterposxnans] = corr([1:26]',...
+    notmagsynsnansinfo.nansbyletter','type','Spearman')
+% rholetterposxnans = 0.67453
+% pletterposxnans = 0.00022642
+
+% % correlation with frequency
+% [rholetterfqxnans pletterfxxnans] = corr(fqorder',...
+%     notmagsynsnansinfo.nansbyletter','type','Spearman')
+% rholetterfqxnans = 0.25128
+% pletterfxxnans = 0.21475
+
+
+% correlation with frequency as first letter
+% [rholetterfqfirstxnans pletterfqfirstxnans] = corr(fqfrst',notmagsynsnansinfo.nansbyletter','type','Spearman')
+% rholetterfqfirstxnans = 0.063943
+% pletterfqfirstxnans = 0.75631
+
+
+
+
+% can do this for each color category 
+% go through 11 color cats plus no match
+for c = 0:11
+%     for c = 0
+
+
+  colorcatinfo = f_singlecolordistribution(p_rgb(find(syntype~=2),:,:),'notmag',c);
+
+  
+ disp(colorcatinfo.cat); 
+  
+% table with some useful info
+disp('number of possible matches ');
+disp(colorcatinfo.totalmatches);
+
+disp('number not matched');
+disp(colorcatinfo.matchtocategory);
+
+disp('proportion matched');
+disp(1-(colorcatinfo.matchtocategory/colorcatinfo.totalmatches));
+
+disp('number of matches');
+disp(colorcatinfo.totalmatches-colorcatinfo.matchtocategory);
+
+% 
+% disp('number of subjects with number of matches');
+% disp(colorcatinfo.catbysubject);
+% 
+% disp('      # matches  %of subs');
+% disp([(26:-1:0)' (cumsum(colorcatinfo.catbysubject)/6188)']);
+%     
+%     
+% disp('correlation with order /n'); 
+% %     show correlations
+% [rholetterposxnans pletterposxnans] = corr([1:26]',...
+%     colorcatinfo.catbyletter','type','Spearman')
+% 
+% 
+% disp('correlation with frequency /n');
+% % % correlation with frequency
+% [rholetterfqxnans pletterfxxnans] = corr(fqorder',...
+%     colorcatinfo.catbyletter','type','Spearman')
+% 
+% 
+% 
+% disp('correlation with first letter frequency /n');
+% % correlation with frequency as first letter
+% [rholetterfqfirstxnans pletterfqfirstxnans] = corr(fqfrst',...
+%     colorcatinfo.catbyletter','type','Spearman')
+% 
+%     
+
+end
+
+
+
+
+
+
+
 
 
 
@@ -414,7 +523,7 @@ end
 
 
 % need to create equally spaced bins in rgb.  
-nbins = 4;
+nbins = 3;
 % create the bins.  add 2 to get edges
 roundbins = linspace(0,1,nbins+2);
 % now find the bin centers.  these will be half the bin size subtracted
@@ -442,6 +551,16 @@ plot2svg(['proportionmatchesinRGBbars/' bparams '.magnetsyns.svg']);
 f_colorspaceRepBars(p_rgb,lowresroundvec,'allmatches')
 saveas(gcf,['proportionmatchesinRGBbars/' bparams '.allsyns.png'],'png');
 plot2svg(['proportionmatchesinRGBbars/' bparams '.allmagnetsyns.svg']);
+
+
+
+
+
+
+% color x letter visualizations for just the general population
+
+
+f_visualizeEagDBsubset(nonmagnetmatches)
 
 
 
@@ -1102,7 +1221,6 @@ end
 
 
 
-
 %
 %
 % % correlation of measures with one another
@@ -1145,56 +1263,57 @@ ave_sortedsim=mean(sortedsim);
 % sort our letter pairs to match
 sortedletterpairs = letterpairs(sortedindx);
 
-% if ~exist('correlationsAveAcrossSubsAndLetterPairs','dir')
-%     mkdir('correlationsAveAcrossSubsAndLetterPairs');
-% end
-%
-%
-% % fastest way is to reshape each matrix and compute average?
-%
-% for i=1:size(simmeasures,2)-1
-%
-%     % ave sorted predictor
-%     s=simmeasures(sortedindx,i);
-%     % reshape for averaging (checked this bookkeeping and it looks right)
-%     s=reshape(s,binsize,325/binsize);
-%     % average the columns
-%     ave_s=mean(s);
-%
-%     %     compute a correlation between the measures
-%     %  linear regression
-%     p=polyfit(ave_s,ave_sortedsim,1);
-%     %   points predicted by fit line
-%     yfit=polyval(p,ave_s);
-%     %   get the residuals
-%     yresid=ave_sortedsim-yfit;
-%     %    sumsquaredresidual
-%     SSresid=sum(yresid.^2);
-%     %     total sum of squares
-%     SSTotal=(length(ave_sortedsim)-1)*var(ave_sortedsim);
-%     %     rsquared
-%     rsq = 1 - SSresid/SSTotal;
-%     %
-%    %   compare to matlab output
-%     [s_rho, pval] = corr(ave_s',ave_sortedsim','type','Spearman');
-%
-%
-%     figure('Name',columnheaders{i},'Color',[1 1 1]);
-%     plot(ave_s,yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
-%     hold on;
-%     plot(ave_s,ave_sortedsim,'r.','MarkerSize',10);
-%     xlabel(columnheaders{i});
-%     ylabel('mean L*a*b* distance');
-%     box off;
-% %     text(simmeasures(:,i),simmeasures(:,end),letterpairs);
-%     hold on;
-%       title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
-%          'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
-%
-%        saveas(gcf,['correlationsAveAcrossSubsAndLetterPairs/' columnheaders{i} '.png'],'png');
-%      close gcf;
-%
-% end
+if ~exist('correlationsAveAcrossSubsAndLetterPairs','dir')
+    mkdir('correlationsAveAcrossSubsAndLetterPairs');
+end
+
+
+% fastest way is to reshape each matrix and compute average?
+
+for i=1:size(simmeasures,2)-1
+
+    % ave sorted predictor
+    s=simmeasures(sortedindx,i);
+    % reshape for averaging (checked this bookkeeping and it looks right)
+    s=reshape(s,binsize,325/binsize);
+    % average the columns
+    ave_s=mean(s);
+
+    %     compute a correlation between the measures
+    %  linear regression
+    p=polyfit(ave_s,ave_sortedsim,1);
+    %   points predicted by fit line
+    yfit=polyval(p,ave_s);
+    %   get the residuals
+    yresid=ave_sortedsim-yfit;
+    %    sumsquaredresidual
+    SSresid=sum(yresid.^2);
+    %     total sum of squares
+    SSTotal=(length(ave_sortedsim)-1)*var(ave_sortedsim);
+    %     rsquared
+    rsq = 1 - SSresid/SSTotal;
+    %
+   %   compare to matlab output
+    [s_rho, pval] = corr(ave_s',ave_sortedsim','type','Spearman');
+
+
+    figure('Name',columnheaders{i},'Color',[1 1 1]);
+    plot(ave_s,yfit,'co','MarkerSize',10,'MarkerFaceColor','c');
+    hold on;
+    plot(ave_s,ave_sortedsim,'r.','MarkerSize',10);
+    xlabel(columnheaders{i});
+    ylabel('mean L*a*b* distance');
+    box off;
+%     text(simmeasures(:,i),simmeasures(:,end),letterpairs);
+    hold on;
+      title([num2str(rsq) '% variance explained ' 'r=' num2str(sqrt(rsq)) ' : '...
+         'rho = ' num2str(s_rho) ' p = ' num2str(pval)]);
+
+       saveas(gcf,['correlationsAveAcrossSubsAndLetterPairs/' columnheaders{i} '.png'],'png');
+       plot2svg(['correlationsAveAcrossSubsAndLetterPairs/' columnheaders{i} '.svg'],gcf);
+       close gcf;
+
+end
 
 
 
@@ -1255,10 +1374,15 @@ clear rho pval
 
 % x boundaries
 % for squared
-xbounds = [-0.05 0.07];
+xbounds = [0 .2];
+
+rhobins = 0.01;
 
 
 for i=1:(size(simmeasures,2)-1)
+%     
+% just for ord diff over odr sum
+% for i= 17
     
     figure('Name',columnheaders{i},'Color',[1 1 1],'Position',get(0,'ScreenSize'));
     
@@ -1317,7 +1441,9 @@ for i=1:(size(simmeasures,2)-1)
     
     subplot(2,3,4);
 %     hist(rho{i},-.3:.01:.3);
-    hist(rho{i},-.07:.01:.07);
+%     hist(rho{i},-.07:.01:.07);
+% use xbounds for histogram
+      hist(rho{i},xbounds(1):rhobins:xbounds(2));
 
     xlabel('rho');
     ylabel('count of subjects');
@@ -1326,6 +1452,11 @@ for i=1:(size(simmeasures,2)-1)
 %     plot(0,0:2:max(hist(rho{i},-.3:.01:.3))+20,'r');
     plot(0,0:2:max(hist(rho{i},xbounds(1):.01:xbounds(2)))+20,'r');
     set(gca,'XLim',[xbounds(1) xbounds(2)]);
+    
+%     for vss wanted to fix the yaxis for ord diff / ord sum
+    set(gca,'YLim',[0 500]);
+    
+    
     title('subject rhos');
     
 %     let's mark the median
@@ -1346,13 +1477,18 @@ for i=1:(size(simmeasures,2)-1)
     srho{i} = srho{i}.^2;
     
     subplot(2,3,5);
-    hist(srho{i},xbounds(1):.01:xbounds(2));
+%     hist(srho{i},xbounds(1):.01:xbounds(2));
+    hist(srho{i},xbounds(1):rhobins:xbounds(2));
     xlabel('rho');
     ylabel('count of subjects');
     box off;
     hold on;
     plot(0,0:2:max(hist(srho{i},xbounds(1):.01:xbounds(2)))+20,'r');
     set(gca,'XLim',[xbounds(1) xbounds(2)]);
+    %     for vss wanted to fix the yaxis for ord diff / ord sum
+    set(gca,'YLim',[0 4500]);
+    
+    
     title('shuffled subject rhos');
     
     %     let's mark the median
@@ -1375,13 +1511,18 @@ for i=1:(size(simmeasures,2)-1)
     prho{i} = prho{i}.^2;
     
     subplot(2,3,6);
-    hist(prho{i},xbounds(1):.01:xbounds(2));
+%     hist(prho{i},xbounds(1):.01:xbounds(2));
+    hist(prho{i},xbounds(1):rhobins:xbounds(2));
     xlabel('rho');
     ylabel('count of subjects');
     box off;
     hold on;
     plot(0,0:2:max(hist(prho{i},xbounds(1):.01:xbounds(2)))+20,'r');
     set(gca,'XLim',[xbounds(1) xbounds(2)]);
+    %     for vss wanted to fix the yaxis for ord diff / ord sum
+    set(gca,'YLim',[0 500]);
+    
+    
     title('permuted subject rhos');
     %     let's mark the median
     plot(median(prho{i}),0:2:max(hist(prho{i},xbounds(1):.01:xbounds(2)))+20,'c');
@@ -1393,8 +1534,248 @@ for i=1:(size(simmeasures,2)-1)
     plot2svg(['avesubjrhos/' columnheaders{i} '.svg']);
     
     close gcf;
+
+    % make log plot comparing subject data and permuted data
+
+ figure('Name',columnheaders{i},'Color',[1 1 1],'Position',get(0,'ScreenSize'));
+
+% permuted rhos
+   prhohist= hist(prho{i},xbounds(1):rhobins:xbounds(2));
+    
+    rhohist=hist(rho{i},xbounds(1):rhobins:xbounds(2));
+    
+    plot(xbounds(1):rhobins:xbounds(2),prhohist,'-c','LineWidth',10);
+    hold on;
+    plot(xbounds(1):rhobins:xbounds(2),prhohist,'oc','MarkerSize',15,'MarkerFaceColor','c');
+
+    
+    plot(xbounds(1):rhobins:xbounds(2),rhohist,'-r','LineWidth',10);
+    plot(xbounds(1):rhobins:xbounds(2),rhohist,'or','MarkerSize',15,'MarkerFaceColor','r');
+
+    
+    set(gca,'YScale','log');
+    
+    box off;
+    
+    ylabel('count of synesthetes');
+    xlabel('correlation');
+    
+    saveas(gcf,['avesubjrhos/' columnheaders{i} '.logplot.png'],'png');
+    %      close gcf;
+    plot2svg(['avesubjrhos/' columnheaders{i} 'logplot.svg'],gcf);
+    
+
     
 end
+
+
+
+
+
+% do it without squaring
+
+% make sure rho and p don't have assigned values already
+clear rho pval
+
+
+% x boundaries
+% for squared
+xbounds = [-.2 .2];
+
+rhobins = 0.01;
+
+
+for i=1:(size(simmeasures,2)-1)
+%     
+% just for ord diff over odr sum
+% for i= 17
+    
+    figure('Name',columnheaders{i},'Color',[1 1 1],'Position',get(0,'ScreenSize'));
+    
+    %     permute data for this similarity measure
+    %  want to apply same permute to row and column labels for each subject
+    %   so if permute order is 2 4 1 3, then columns are ordered 2 4 1 3 and
+    %   rows are ordered 2 4 1 3, for each subject
+    
+    %     1. get permutationindex
+    [pletters pindex] = Shuffle(1:26);
+    % % 3. permute cols and rows
+    plab_distmatrices = lab_distmatrices(pletters,pletters,:);
+    %     get average of distance matrix from permuted data
+    pmed_lab_distmatrices = nanmedian(plab_distmatrices,3);
+    
+%     plot our distance matrices
+%  actual data
+%   
+    subplot(2,3,1);
+    imagesc(nanmedian(lab_distmatrices,3));
+    set(gca,'CLim',[50 90]);
+    set(gca,'XTick',[1:26],'YTick',[1:26]);
+    set(gca,'XTickLabel',letters,'YTickLabel',letters);
+    colorbar;
+    title('Data');
+% shuffled data    
+    subplot(2,3,2);
+  imagesc(nanmedian(plab_distmatrices,3));
+    set(gca,'CLim',[50 90]);
+        set(gca,'XTick',[1:26],'YTick',[1:26]);
+    set(gca,'XTickLabel',letters(pletters),'YTickLabel',letters(pletters));
+    colorbar;
+        title('Permuted Data');
+
+    
+%     predictor matrix
+      subplot(2,3,3);
+  imagesc(squareform(simmeasures(:,i)));
+    set(gca,'CLim',[min(min(simmeasures(:,i))) max(max(simmeasures(:,i)))]);
+        set(gca,'XTick',[1:26],'YTick',[1:26]);
+
+    set(gca,'XTickLabel',letters,'YTickLabel',letters);
+    colorbar;
+            title(columnheaders(i));
+
+
+
+    %   correlate actual data with predictor for each subject and plot
+    %   distribution of rhos and ps
+    
+    
+    [rho{i}, pval{i}] = corr(simmeasures(:,i),lab_dists,'type','Spearman','row','pairwise');
+    
+%     let's see these as r^2
+%     rho{i} = rho{i}.^2;
+    
+    subplot(2,3,4);
+%     hist(rho{i},-.3:.01:.3);
+%     hist(rho{i},-.07:.01:.07);
+% use xbounds for histogram
+      hist(rho{i},xbounds(1):rhobins:xbounds(2));
+
+    xlabel('rho');
+    ylabel('count of subjects');
+    box off;
+    hold on;
+%     plot(0,0:2:max(hist(rho{i},-.3:.01:.3))+20,'r');
+    plot(0,0:2:max(hist(rho{i},xbounds(1):.01:xbounds(2)))+20,'r');
+    set(gca,'XLim',[xbounds(1) xbounds(2)]);
+    
+%     for vss wanted to fix the yaxis for ord diff / ord sum
+    set(gca,'YLim',[0 500]);
+    
+    
+    title('subject rhos');
+    
+%     let's mark the median
+%     plot(median(rho{i}),0:2:max(hist(rho{i},-.3:.01:.3))+20,'c');
+%     text(median(rho{i}),max(hist(rho{i},-.3:.01:.3))+20,num2str(median(rho{i})));
+        plot(median(rho{i}),0:2:max(hist(rho{i},xbounds(1):.01:xbounds(2)))+20,'c');
+    text(median(rho{i}),max(hist(rho{i},xbounds(1):.01:xbounds(2)))+20,num2str(median(rho{i})));
+    
+    
+%     how about a correlation with a random shuffle that breaks up row and
+%     column structure
+
+    [sletters sindex] = Shuffle(1:325);
+    slab_dists = lab_dists(sletters,:);
+    [srho{i}, spval{i}] = corr(simmeasures(:,i),slab_dists,'type','Spearman','row','pairwise');
+
+    %     let's see these as r^2
+%     srho{i} = srho{i}.^2;
+    
+    subplot(2,3,5);
+%     hist(srho{i},xbounds(1):.01:xbounds(2));
+    hist(srho{i},xbounds(1):rhobins:xbounds(2));
+    xlabel('rho');
+    ylabel('count of subjects');
+    box off;
+    hold on;
+    plot(0,0:2:max(hist(srho{i},xbounds(1):.01:xbounds(2)))+20,'r');
+    set(gca,'XLim',[xbounds(1) xbounds(2)]);
+    %     for vss wanted to fix the yaxis for ord diff / ord sum
+    set(gca,'YLim',[0 4500]);
+    
+    
+    title('shuffled subject rhos');
+    
+    %     let's mark the median
+    plot(median(srho{i}),0:2:max(hist(srho{i},xbounds(1):.01:xbounds(2)))+20,'c');
+    text(median(srho{i}),max(hist(srho{i},xbounds(1):.01:xbounds(2)))+20,num2str(median(srho{i})));
+    
+
+    %   correlate permuted data with predictor for each subject and plot
+    %   distribution of rhos and ps
+    
+%     turn permuted distance matrices back into vectors
+   plab_dists =nan(size(lab_dists));
+   for s=1:length(plab_dists)
+       plab_dists(:,s)=squareform(plab_distmatrices(:,:,s));
+   end
+    
+    [prho{i}, ppval{i}] = corr(simmeasures(:,i),plab_dists,'type','Spearman','row','pairwise');
+    
+    %     let's see these as r^2
+%     prho{i} = prho{i}.^2;
+    
+    subplot(2,3,6);
+%     hist(prho{i},xbounds(1):.01:xbounds(2));
+    hist(prho{i},xbounds(1):rhobins:xbounds(2));
+    xlabel('rho');
+    ylabel('count of subjects');
+    box off;
+    hold on;
+    plot(0,0:2:max(hist(prho{i},xbounds(1):.01:xbounds(2)))+20,'r');
+    set(gca,'XLim',[xbounds(1) xbounds(2)]);
+    %     for vss wanted to fix the yaxis for ord diff / ord sum
+    set(gca,'YLim',[0 500]);
+    
+    
+    title('permuted subject rhos');
+    %     let's mark the median
+    plot(median(prho{i}),0:2:max(hist(prho{i},xbounds(1):.01:xbounds(2)))+20,'c');
+    text(median(prho{i}),max(hist(prho{i},xbounds(1):.01:xbounds(2)))+20,num2str(median(prho{i})));
+    
+    
+    saveas(gcf,['avesubjrhos/' columnheaders{i} '.notsquared.png'],'png');
+    %      close gcf;
+    plot2svg(['avesubjrhos/' columnheaders{i} '.notsquared.svg']);
+    
+    close gcf;
+
+    % make log plot comparing subject data and permuted data
+
+ figure('Name',columnheaders{i},'Color',[1 1 1],'Position',get(0,'ScreenSize'));
+
+% permuted rhos
+   prhohist= hist(prho{i},xbounds(1):rhobins:xbounds(2));
+    
+    rhohist=hist(rho{i},xbounds(1):rhobins:xbounds(2));
+    
+    plot(xbounds(1):rhobins:xbounds(2),prhohist,'-c','LineWidth',10);
+    hold on;
+    plot(xbounds(1):rhobins:xbounds(2),prhohist,'oc','MarkerSize',15,'MarkerFaceColor','c');
+
+    
+    plot(xbounds(1):rhobins:xbounds(2),rhohist,'-r','LineWidth',10);
+    plot(xbounds(1):rhobins:xbounds(2),rhohist,'or','MarkerSize',15,'MarkerFaceColor','r');
+
+    
+    set(gca,'YScale','log');
+    
+    box off;
+    
+    ylabel('count of synesthetes');
+    xlabel('correlation');
+    
+    saveas(gcf,['avesubjrhos/' columnheaders{i} '.notsquared.logplot.png'],'png');
+    %      close gcf;
+    plot2svg(['avesubjrhos/' columnheaders{i} '.notsquaredlogplot.svg'],gcf);
+    
+
+    
+end
+
+
+
 
 
 
@@ -1563,7 +1944,7 @@ if ~exist('bootstrappedInd','dir')
     mkdir('bootstrappedInd');
 end
 
- lab_dists = rand(ize(lab_dists));
+ lab_dists = rand(size(lab_dists));
 
 
 for distancemeasure=1:(length(columnheaders)-1)
@@ -1800,7 +2181,8 @@ clear rho pval
 xbounds = [-0.05 0.07];
 
 
-for i=1:(size(simmeasures,2)-1)
+% for i=1:(size(simmeasures,2)-1)
+for i=17
     
     figure('Name',columnheaders{i},'Color',[1 1 1],'Position',get(0,'ScreenSize'));
     
@@ -2070,3 +2452,283 @@ box off;
 
 
 
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % analysis of scores for different groups
+
+LoadColorSequenceScores
+% loads a matrix
+%<pre>
+% This export generated on 2014-03-06
+% Fields are: users_id, BatteryId, LCAvgScore, NCAvgScore, GCAvgScore,
+% WCAvgScore, MCAvgScore, SCNumCorrect, SCNumIncorrect, SCNumTotal, SCAccuracyPercent, SCMeanRTCorrect, SCMeanRTIncorrect, SCMeanRTTotal
+% matrix has a lot of subjects, so once again we want to find ours. this time all of them should be in here somewhere       
+% 50868          14
+% oddly, batteryID again appears to correspond to the variable userid we
+% already have
+
+
+% matrix to hold our behavior
+behavior = zeros(6588,14);
+
+for i=1:length(userid)
+%     find each subject
+    indx = find(ColorSequenceScores(:,2)==userid(i));
+%     add their behavior to our matrix
+    behavior(i,:) = ColorSequenceScores(indx,:);
+
+end
+
+
+
+% color matching distance threshold is 1
+% median dist for magnet syns
+magcdist = median(behavior(find(syntype==2),3));
+% 95% confidence interval for magnet syns
+% [magcdistci, magcdiststat] = bootci(5000,{@nanmedian,behavior(find(syntype==2),3)});
+magcdistci = bootci(5000,{@nanmedian,behavior(find(syntype==2),3)});
+% everyone else
+notmagcdist = median(behavior(find(syntype~=2),3));
+notmagcdistci = bootci(5000,@median,behavior(find(syntype~=2),3));
+% everyone
+allcdist = median(behavior(:,3));
+allcdistci = bootci(5000,@median,behavior(:,3));
+
+
+% make plot and do a ttest
+[hcdist pcdist pci pstats] = ttest2(behavior(find(syntype==2),3),behavior(find(syntype~=2),3))
+figure('Name','magnet vs nonmagnet color matching scores','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+bar(1:2,[magcdist, notmagcdist]);
+hold on;
+box off;
+% confidence intervals
+errorbar2(1:2,[magcdist,notmagcdist],[magcdistci notmagcdistci],1,'k');
+set(gca,'XTickLabel',{'magnet syns','rest of pop'});
+ylabel('color matching score');
+title(['t = ' num2str(pstats.tstat) ', p = ' num2str(pcdist)]);
+
+% speeded classification accuracy
+% median acc for magnets accuracy is column ll
+magacc=median(behavior(find(syntype==2),11));
+magaccci = bootci(5000,@median,behavior(find(syntype==2),11));
+% median acc for not magnets
+notmagacc=median(behavior(find(syntype~=2),11));
+notmagaccci = bootci(5000,@median,behavior(find(syntype~=2),11));
+% median acc for everything
+allacc = median(behavior(:,11));
+allaccci = bootci(5000,@median,behavior(:,11));
+
+
+% make plot and do a ttest
+[hcacc pcacc pci pstats] = ttest2(behavior(find(syntype==2),11),behavior(find(syntype~=2),11))
+figure('Name','magnet vs nonmagnet color matching scores','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+bar(1:2,[magacc, notmagacc]);
+hold on;
+box off;
+% confidence intervals
+errorbar2(1:2,[magacc,notmagacc],[magaccci notmagaccci],1,'k');
+set(gca,'XTickLabel',{'magnet syns','rest of pop'});
+ylabel('speeded classification accuracy');
+title(['t = ' num2str(pstats.tstat) ', p = ' num2str(pcacc)]);
+
+
+% speeded classification correct rts
+% median magnets
+magrt=median(behavior(find(syntype==2),12));
+% bootstrap 95% ci
+magrtci = bootci(5000,@median,behavior(find(syntype==2),12));
+% median not magnets
+notmagrt=median(behavior(find(syntype~=2),12));
+notmagrtci = bootci(5000,@median,behavior(find(syntype~=2),12));
+% all subjects
+allcrt=median(behavior(:,12));
+allcrtci = bootci(5000,@median,behavior(:,12));
+
+
+% make plot and do a ttest
+[hcrt pcrt pci pstats] = ttest2(behavior(find(syntype==2),12),behavior(find(syntype~=2),12))
+figure('Name','magnet vs nonmagnet color matching scores','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+bar(1:2,[magrt, notmagrt]);
+hold on;
+box off;
+% confidence intervals
+errorbar2(1:2,[magrt,notmagrt],[magrtci notmagrtci],1,'k');
+set(gca,'XTickLabel',{'magnet syns','rest of pop'});
+ylabel('speeded classification rt');
+title(['t = ' num2str(pstats.tstat) ', p = ' num2str(pcrt)]);
+
+% via kendrick's class
+% - Randomization (or permutation) tests. Let's pose the null hypothesis
+% that the two sets of data come from the same probability distribution
+% (not necessarily Gaussian). Under the null hypothesis, the two sets of data
+% are interchangeable, so if we aggregate the data points and randomly divide 
+% the data points into two sets, then the results should be comparable to the 
+% results obtained with the original data. So, the strategy is to generate
+% random datasets, compute some statistic from these datasets (such as
+% difference in means or difference in medians), and then compare the 
+% resulting values to the statistic computed from the original data. We count
+% the number of randomly obtained values that are more extreme than the actual
+% observed value and divide this by the total number of simulations that were 
+% run. The result is the p-value. Notice that we have used raw computational 
+% power to calculate the p-value directly instead of relying on analytical 
+% formulas (which are valid only if certain assumptions are met).
+
+%
+% so here we would randomly assign 400 subjects to 1 group and the
+% remainder to another and find the difference in the median scores.  we
+% create a distribution of these simulated medians and then find out where
+% our actual data is on this distribution.  
+
+% our observed difference in medians for color matching, acc, and rt
+diff_cdistmedian = magcdist - notmagcdist;
+diff_accmedian = magacc - notmagacc;
+diff_rtmedian = magrt - notmagrt;
+
+% now make a distribution of bootstrapped medians
+nboots = 5000;
+% variables holding bootstrapped distribution of medians
+bs_diffcdistmedian = [];
+bs_diffaccmedian = [];
+bs_diffrtmedian = [];
+
+% should be done as a matrix!!
+for i=1:nboots
+%     create a new sample by shuffling assignment of syntype
+    shuffledsyntype = shuffle(syntype);
+    
+%     calculate new medians for cdist
+    sh_magcdist = median(behavior(shuffledsyntype==2,3));
+    sh_notmagcdist = median(behavior(shuffledsyntype~=2,3));
+    bs_diffcdistmedian = [bs_diffcdistmedian sh_magcdist-sh_notmagcdist];
+    
+%     calculate new medians for accuracy
+    sh_magacc = median(behavior(shuffledsyntype==2,11));
+    sh_notmagacc = median(behavior(shuffledsyntype~=2,11));
+    bs_diffaccmedian = [bs_diffaccmedian sh_magacc-sh_notmagacc];
+    
+    %     calculate new medians for rt
+    sh_magrt = median(behavior(shuffledsyntype==2,12));
+    sh_notmagrt = median(behavior(shuffledsyntype~=2,12));
+    bs_diffrtmedian = [bs_diffrtmedian sh_magrt-sh_notmagrt];
+    
+end
+
+figure('Name','bootstrapped medians for www.synesthete.org','Color',[1 1 1],'Position',get(0,'ScreenSize'));
+% color matching
+subplot(3,2,1);
+bar(1:2,[magcdist, notmagcdist]);
+hold on;
+box off;
+% confidence intervals
+errorbar2(1:2,[magcdist,notmagcdist],[magcdistci notmagcdistci],1,'r');
+set(gca,'XTickLabel',{'magnet syns','rest of pop'});
+ylabel('rts for classification task');
+% title();
+subplot(3,2,2);
+% calculate percentile less than observed value
+p_rtmedian = 1-length(find(bs_diffrtmedian>diff_rtmedian))/nboots
+% add mark for observed median
+[counts bincenters] = hist(bs_diffrtmedian,30);
+% turn it into a probability distribution
+bar(bincenters,counts/nboots,1);
+hold on;
+% yvalue of correct bin from histogram
+yval=counts(find(min(bincenters-diff_rtmedian)))/nboots;
+% plot a line around that height of bin (will be small!)
+plot(diff_rtmedian,yval-(yval/2):yval+(yval/2),'r','Linewidth',8);
+box off;
+xlabel('bootstrapped difference in median rts for classification');
+ylabel('probability of difference in medians'); 
+title(['observed median is ' num2str(diff_rtmedian) ' p = ' num2str(2*p_rtmedian)]);
+
+% median accuracy
+p_accmedian = length(find(bs_diffaccmedian>diff_accmedian))/nboots;
+subplot(3,2,3);
+bar(1:2,[magacc, notmagacc]);
+hold on;
+box off;
+% confidence intervals
+errorbar2(1:2,[magacc,notmagacc],[magaccci notmagaccci],1,'r');
+set(gca,'XTickLabel',{'magnet syns','rest of pop'});
+ylabel('accuracy for classification task');
+% title();
+subplot(3,2,4);
+% calculate percentile less than observed value
+p_accmedian = length(find(bs_diffaccmedian>diff_accmedian))/nboots
+% add mark for observed median
+[counts bincenters] = hist(bs_diffaccmedian,30);
+% turn it into a probability distribution
+bar(bincenters,counts/nboots,1);
+hold on;
+% yvalue of correct bin from histogram
+yval=counts(find(min(bincenters-diff_accmedian)))/nboots;
+% plot a line around that height of bin (will be small!)
+plot(diff_accmedian,yval-(yval/2):yval+(yval/2),'r','Linewidth',8);
+box off;
+xlabel('bootstrapped difference in median accs for classification');
+ylabel('probability of difference in medians'); 
+title(['observed median is ' num2str(diff_accmedian) ' p = ' num2str(2*p_accmedian)]);
+
+% color distance
+p_cdistmedian = 1-length(find(bs_diffcdistmedian>diff_cdistmedian))/nboots
+subplot(3,2,5);
+bar(1:2,[magcdist, notmagcdist]);
+hold on;
+box off;
+% confidence intervals
+errorbar2(1:2,[magcdist,notmagcdist],[magcdistci notmagcdistci],1,'r');
+set(gca,'XTickLabel',{'magnet syns','rest of pop'});
+ylabel('accuracy for classification task');
+% title();
+subplot(3,2,6);
+% calculate percentile less than observed value
+p_cdistmedian = 1-length(find(bs_diffcdistmedian>diff_cdistmedian))/nboots
+% add mark for observed median
+[counts bincenters] = hist(bs_diffcdistmedian,30);
+% turn it into a probability distribution
+bar(bincenters,counts/nboots,1);
+hold on;
+% yvalue of correct bin from histogram
+yval=counts(find(min(bincenters-diff_cdistmedian)))/nboots;
+% plot a line around that height of bin (will be small!)
+plot(diff_cdistmedian,yval-(yval/2):yval+(yval/2),'r','Linewidth',20);
+box off;
+xlabel('bootstrapped difference in median cdists for classification');
+ylabel('probability of difference in medians'); 
+title(['observed median is ' num2str(diff_cdistmedian) ' p = ' num2str(2*p_cdistmedian)]);
+
+if ~exist('behavior','dir')
+    mkdir('behavior')
+end
+
+% figure for independence paper
+figure('Name','6188 Synesthetes Matching Performance','Color',[1 1 1]);
+bar(1,notmagcdist)
+hold on;
+errorbar2(1,notmagcdist,notmagcdistci,1,'k');
+box off;
+set(gca,'YLim',[0 1.2],'XLim',[.5 1.5],'XTickLabel','');
+ylabel('average distance between matches');
+hold on;
+    saveas(gcf,'behavior/6188SynesthetesMatchingPerformance','png');
+
+    plot2svg('behavior/6188SynesthetesMatchingPerformance.svg',gcf);
+    
+
+% do a whole histogram figure
+
+figure('Name','6188 Synesthetes Matching Performance Histogram','Color',[1 1 1]);
+hist(behavior(find(syntype~=2),3),0:.05:3);
+box off;
+set(gca,'XLim',[0 3]);
+ylabel('number of subjects');
+xlabel('average matching distance');
+hold on;
+    saveas(gcf,'behavior/6188SynesthetesMatchingPerformanceHist','png');
+
+    plot2svg('behavior/6188SynesthetesMatchingPerformanceHist.svg',gcf);
+    
+% can make normed axis by dividing y tick marks by 6188
